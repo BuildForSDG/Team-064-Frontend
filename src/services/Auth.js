@@ -1,4 +1,8 @@
 /* eslint-disable linebreak-style */
+
+// @desc  Use secure-ls to store sensitive data in the local storage. It encrypts the data.
+// @use   Instead of localStorage, use ls.
+// @ex.   Check this file for examples.
 import SecureLS from 'secure-ls';
 
 const ls = new SecureLS();

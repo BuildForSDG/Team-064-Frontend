@@ -1,14 +1,17 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
+
 import {
   createStore, applyMiddleware, combineReducers, compose
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import user from './reducers/user';
+import ui from './reducers/ui';
 
 const appReducer = combineReducers({
-  user
+  user,
+  ui // Import your reducers in this object
 });
 
 const rootReducer = (state, action) => {

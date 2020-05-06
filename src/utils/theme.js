@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+
+// Theme configurations like colors font size and all can go here
 export default {
   palette: {
     primary: {

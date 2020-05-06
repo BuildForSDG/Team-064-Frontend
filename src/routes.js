@@ -6,14 +6,9 @@ import React from 'react';
 import {
   Router, Route as DefaultRoute, Switch, Redirect
 } from 'react-router-dom';
-import SignInPage from './components/Screens/Auth';
+import history from './history';
+import SignInPage from './components/Screens/Auth/SignIn';
 import LandingPage from './containers/LandingPage';
-
-// @desc  Import for browser history. Used to push pages, goBack, goForward, etc
-// @use   import { history } from 'routes'; history.push('/sign-in')
-const { createBrowserHistory } = require('history');
-
-export const history = createBrowserHistory();
 
 // @desc  A function to check if user is authenticated. Check if token exists
 // @ex    const isAuth = isAuthenticated()
@@ -44,19 +39,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // @use     <Route exact path="<name of path>" component={Component to render} />
 // @ex      <Route exact path="/" component={LandingPage} />
 const Route = ({ component: Component, ensureNonAuth, ...rest }) => (
-  <DefaultRoute
-    {...rest}
-    render={(props) => (ensureNonAuth && isAuthenticated() ? (
-        <Redirect
-          to={{
-            pathname: '/dashboard'
-          }}
-        />
-    ) : (
-        <Component {...props} />
-    ))
-    }
-  />
+  <DefaultRoute {...rest} render={(props) => <Component {...props} />} />
 );
 
 // @desc  All routes goes here. Either private of public
