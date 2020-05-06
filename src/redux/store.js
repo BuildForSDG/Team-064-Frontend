@@ -1,6 +1,7 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import uireducer from './reducers/UiReducer';
+import uireducer from './reducers/uiReducer';
 
 const initialState = {};
 
@@ -10,10 +11,7 @@ const rootReducers = combineReducers({
   uireducer
 });
 
-const store = createStore(
-  rootReducers,
-  initialState,
-  compose(applyMiddleware(...middleWare), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-);
+// eslint-disable-next-line max-len
+const store = createStore(rootReducers, initialState, composeWithDevTools(applyMiddleware(...middleWare)));
 
 export default store;

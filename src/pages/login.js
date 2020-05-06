@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = (theme) => ({
   ...theme.spreadthis
 });
 
-export class login extends Component {
+export class login extends React.Component {
+  // eslint-disable-next-line class-methods-use-this
   render() {
     return <div>Hello world</div>;
   }
