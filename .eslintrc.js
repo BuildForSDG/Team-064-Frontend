@@ -10,16 +10,15 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
+  parser: 'babel-eslint',
+  plugins: ['react'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      modules: true
-    },
     ecmaVersion: 2018,
     sourceType: 'module'
   },
   rules: {
     'comma-dangle': ['error', 'never'],
-    'no-param-reassign': ['error', { props: false }]
+    'no-param-reassign': ['error', { props: false }],
+    'linebreak-style': ['error', 'unix']
   }
 };

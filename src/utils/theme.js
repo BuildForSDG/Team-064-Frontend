@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 /* eslint-disable linebreak-style */
-=======
->>>>>>> a54a6da238a40b5eed1815eb741c0f14cea667fd
 export default {
   palette: {
     primary: {
