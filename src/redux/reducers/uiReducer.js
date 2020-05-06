@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* eslint-disable linebreak-style */
+=======
+>>>>>>> a54a6da238a40b5eed1815eb741c0f14cea667fd
 import { BUY_CAKE } from '../type';
 
 const initialState = {
