@@ -1,11 +1,17 @@
-import app from './app';
+/* eslint-disable linebreak-style */
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const startApp = async () => {
-  const header = document.querySelector('[data-app-name]');
-  if (!header) return;
+// NOTE: Do not adjust this file. Contact the team before making changes to this file.
+const app = <App />;
 
-  const programName = await app();
-  header.textContent = programName;
-};
+ReactDOM.render(app, document.getElementById('root'));
 
-document.addEventListener('DOMContentLoaded', startApp);
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
