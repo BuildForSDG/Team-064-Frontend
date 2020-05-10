@@ -19,6 +19,9 @@ export default {
   spreadthis: {
     typography: {
       useNextVarients: true
+    },
+    menuButton: {
+      diplay: 'hidden'
     }
   }
 };
