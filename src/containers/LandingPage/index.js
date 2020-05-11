@@ -16,18 +16,28 @@ export class LandingPage extends Component {
       <Fragment>
         <Grid container direction="column">
           <Grid>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt eveniet, magni earum dicta eius fugiat,
-            veritatis dolorem eligendi neque debitis repellat ullam. Eum, quos ipsum. Aperiam dicta minima vitae ut!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Deserunt eveniet, magni earum dicta eius fugiat,
+            veritatis dolorem eligendi neque debitis repellat ullam. Eum,
+             quos ipsum. Aperiam dicta minima vitae ut!
           </Grid>
           <Grid>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, minus. Tempora, quod quis! Excepturi totam,
-            aliquid expedita sint, mollitia nulla corrupti minima, ea harum quasi numquam dignissimos optio voluptas
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Quos, minus. Tempora, quod quis! Excepturi totam,
+            aliquid expedita sint, mollitia nulla corrupti minima,
+             ea harum quasi numquam dignissimos optio voluptas
             sequi!
           </Grid>
           <Grid>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur qui ipsum cupiditate vitae enim earum
-            exercitationem, ex totam quibusdam cum sed aspernatur voluptas beatae atque inventore aliquam, explicabo
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+             Consequuntur qui ipsum cupiditate vitae enim earum
+            exercitationem, ex totam quibusdam cum sed aspernatur voluptas beatae
+             atque inventore aliquam, explicabo
             porro provident.
+          </Grid>
+          <Grid>
+          <button onClick={() => history.push('signup')}>Sign Up</button>
+          <button onClick={() => history.push('signin')}>Sign In</button>
           </Grid>
         </Grid>
       </Fragment>
