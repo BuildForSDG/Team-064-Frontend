@@ -3,14 +3,13 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {
-  Router, Route as DefaultRoute, Switch, Redirect
-} from 'react-router-dom';
+import { Router, Route as DefaultRoute, Switch, Redirect } from 'react-router-dom';
 import history from './history';
 import SignInPage from './components/Screens/Auth/SignIn';
 import LandingPage from './containers/LandingPage';
-import SignUp from './components/Screens/Auth/SignUp';
+import AgentSignUp from './components/Screens/Auth/AgentSignUp';
 import NavBar from './components/Navigations/NavBar/index';
+import AdminLogin from './components/Screens/Auth/AdminLogin';
 
 // @desc  A function to check if user is authenticated. Check if token exists
 // @ex    const isAuth = isAuthenticated()
@@ -39,11 +38,12 @@ const Route = ({ component: Component, ensureNonAuth, ...rest }) => (
 
 export default () => (
   <Router history={history}>
-  <NavBar />
+    <NavBar />
     <Switch>
       <Route ensureNonAuth exact path="/" component={LandingPage} />
       <Route path="/signin" exact component={SignInPage} />
-      <Route path="/signup" exact component={SignUp} />
+      <Route path="/signup" exact component={AgentSignUp} />
+      <Route path="/admin" exact component={AdminLogin} />
       <Route component={() => <h4>404 !</h4>} />
     </Switch>
   </Router>

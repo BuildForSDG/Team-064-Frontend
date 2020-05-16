@@ -23,16 +23,14 @@ const styles = (theme) => ({
 });
 
 const Index = (props) => (
-  <AppBar position="static" className={classes.root}>
+  <AppBar position="static">
     <Toolbar>
       <Grid container justify="space-between">
         <Grid>
-          <Typography variant="h6" className={classes.title}>
-            Cleaner City
-          </Typography>
+          <Typography variant="h6">Cleaner City</Typography>
         </Grid>
         <Grid>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
         </Grid>
