@@ -5,22 +5,14 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 
 ## About
 
-What is this project about. Ok to enrich here or the section above it with an image. 
-
-Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
-
-This is a simple JavaScript starter repo template for setting up your project. The setup contains
-
-- Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
-
-- Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
+This project is designed to improve the waste management system in the country, through fundraising by individuals to suport a community in cleaning its waste as well as order for pickups of waste from anywhere at anytime.
 
 ## Why
 
-Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
+Waste is a major issue around the glob, contributing to the green house effect which scientist have countlessly say its a bomb about to explode. We are living on borrowed time, and if we dont take action now, things might get catastrophic. With this platform and outright age of digital front, this product ensures easy management of waste ranging from individuals to businesses to cummunity cleanup in one place of access.
 
 ## Usage
- How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+ Register at the landing page. You will then be taken to your dashboard for various activities you would like to conduct.
 
 
 ## Setup
