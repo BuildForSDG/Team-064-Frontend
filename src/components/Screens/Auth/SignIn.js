@@ -53,7 +53,7 @@ class Login extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault()
-		let { fetchData, userData } = this.props
+    let { fetchData, userData } = this.props
 		fetchData(this.state.email_signIn)
 		this.setState({
 			email_signIn: '',
@@ -77,7 +77,7 @@ class Login extends React.Component {
 		let { userData } = this.props.userData
 		if (this.props !== prevProps) {
 			if (isAuthenticated()) {
-				this.props.history.push('/order')
+				this.props.history.push('/community')
 			} else {
 				if (userData.length !== 0) {
 					authenticateUser(userData.email, 'customer')
@@ -89,7 +89,7 @@ class Login extends React.Component {
 
 	render() {
 		let { email_signIn, password_signIn, keep_signIn, username_signUp, password_signUp, password_repeat, email_signUp } = this.state
-		let { loading, error, errorMessage } = this.props.userData
+    let { loading, error, errorMessage } = this.props.userData
 		let u = '';
 		let f = ''
 		error === 'true' && errorMessage !== '' ? (f = <span className="error">{errorMessage}</span>) : (f = '')

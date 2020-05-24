@@ -58,8 +58,9 @@ export default () => (
       {/* <PrivateRoute exact path="/" component={LandingPage} /> */}
       <PrivateRoute path="/order" component={Order} />
       <PrivateRoute exact path="/community" component={Community} />
-      <PrivateRoute path="/community/view" component={View} />
-      <PrivateRoute path="/community/edit" component={Edit} />
+      <PrivateRoute exact path="/community/edit/:id" component={Edit} />
+      <PrivateRoute exact path="/community/edit" component={Edit} />
+      <PrivateRoute exact path="/community/:id" component={View} />
       <Route component={() => <h1>404 !</h1>} />
     </Switch>
   </Router>

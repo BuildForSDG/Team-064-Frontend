@@ -13,12 +13,12 @@ export const fetchUserDataSuccess = (userData) => ({ type: FETCH_USER_DATA_SUCCE
 export const fetchUserDataFailure = (error) => ({ type: FETCH_USER_DATA_FAILURE, payload: error})
 export const fetchUserOnline = (error) => ({type: FETCH_USER_ERROR, payload: error});
 
-
-
+// 'https://johnerry.000webhostapp.com/placeholder.php?u='
+// 'https://my-json-server.typicode.com/johnerry/json_place_holder/'
 export const fetchUserData = (name) => async (dispatch) => {
   try {
     dispatch(fetchUserDataRequest())
-    axios.get('https://my-json-server.typicode.com/johnerry/json_place_holder/'+name)
+    axios.get('https://johnerry.000webhostapp.com/placeholder.php?u='+name)
     .then( response => {
       const userData = response.data
       // console.log(userData)

@@ -1,106 +1,43 @@
 import React, { Component } from 'react'
 import Dashboard from '../Dashboard'
-import bag from '../../assets/garbage_bag.jpg'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { sendCommunityData } from '../../store/actions/community'
+import CommList from '../../components/Screens/CommList'
 
 class Community extends Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  componentDidMount() {
+    let { sendData, communityData } = this.props
+    if (communityData.communityData.length === 0) {
+      sendData('list', 'get'); 
+    } else if(communityData.communityData.length === 1) {
+      sendData('list', 'get'); 
+    }
+  }
+  
   render() {
+    let { loading, error , errorMessage, communityData } = this.props.communityData
+      // console.log(communityData.data)
+      let u;
+      if (loading === 'done'){ 
+        u = <ul className="card"><CommList communityData={ communityData.data }/></ul> ;
+      }else {
+        u = <div className="loader_con"><div id="big_loader"></div></div>
+      }
+      // u = <div className="loader_con"><div id="big_loader"></div></div>
+      error === 'true' && errorMessage !== '' ? (u = errorMessage ) : (u = u)
+      
     return (
       <React.Fragment>
 
         <Dashboard>
           <div className="community_container">
-            <ul className="card">
-              <li className="cards__item">
-                <div className="card">
-                  <div className="card_image">
-                    <img src="https://unsplash.it/800/600?image=59" alt="" className="card__image" />
-                  </div>
-                  <div className="card__content">
-                    <div className="amount"> <span>Fund:</span> ₦50,000</div>
-                    <meter value="13200" min="0" max="50000" className="meter"></meter>
-                    <div className="card__title">Oba-Ile Housing Estate, Akure.</div>
-                    <p className="card__text">Oba ile is situated inside the cabon of akure and the most dirtiest area yet, we love your donation to support this community in moving forward
-            throught cleaning its environment and surrounding, lets keep Nigeria clean. </p>
-                    <div className="button">
-                      <button className="delete btn">Delete</button>
-                      <button className="edit btn">Edit</button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="cards__item">
-                <div className="card">
-                  <div className="card_image">
-                    <img src="https://unsplash.it/800/600?image=11" alt="" />
-                  </div>
-                  <div className="card__content">
-                    <div className="amount"> <span>Fund:</span> ₦50,000</div>
-                    <meter value="13200" min="0" max="50000" className="meter"></meter>
-                    <div className="card__title">Oba-Ile Housing Estate, Akure.</div>
-                    <p className="card__text">Oba ile is situated inside the cabon of akure and the most dirtiest area yet, we love your donation to support this community in moving forward
-              throught cleaning its environment and surrounding, lets keep Nigeria clean. </p>
-                    <div className="button">
-                      <button className="delete btn">Delete</button>
-                      <button className="edit btn">Edit</button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="cards__item">
-                <div className="card">
-                  <div className="card_image">
-                    <img src="https://unsplash.it/800/600?image=39" alt="" />
-                  </div>
-                  <div className="card__content">
-                    <div className="amount"> <span>Fund:</span> ₦50,000</div>
-                    <meter value="13200" min="0" max="50000" className="meter"></meter>
-                    <div className="card__title">Oba-Ile Housing Estate, Akure.</div>
-                    <p className="card__text">Oba ile is situated inside the cabon of akure and the most dirtiest area yet, we love your donation to support this community in moving forward
-                throught cleaning its environment and surrounding, lets keep Nigeria clean. </p>
-                    <div className="button">
-                      <button className="delete btn">Delete</button>
-                      <button className="edit btn">Edit</button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="cards__item">
-                <div className="card">
-                  <div className="card_image">
-                    <img src="https://unsplash.it/800/600?image=82" alt="" />
-                  </div>
-                  <div className="card__content">
-                    <div className="amount"> <span>Fund:</span> ₦50,000</div>
-                    <meter value="13200" min="0" max="50000" className="meter"></meter>
-                    <div className="card__title">Oba-Ile Housing Estate, Akure.</div>
-                    <p className="card__text">Oba ile is situated inside the cabon of akure and the most dirtiest area yet, we love your donation to support this community in moving forward
-                  throught cleaning its environment and surrounding, lets keep Nigeria clean. </p>
-                    <div className="button">
-                      <button className="delete btn">Delete</button>
-                      <button className="edit btn">Edit</button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="cards__item">
-                <div className="card">
-                  <div className="card_image">
-                    <img src="https://unsplash.it/800/600?image=82" alt="" />
-                  </div>
-                  <div className="card__content">
-                    <div className="amount"> <span>Fund:</span> ₦50,000</div>
-                    <meter value="13200" min="0" max="50000" className="meter"></meter>
-                    <div className="card__title">Oba-Ile Housing Estate, Akure.</div>
-                    <p className="card__text">Oba ile is situated inside the cabon of akure and the most dirtiest area yet, we love your donation to support this community in moving forward
-                  throught cleaning its environment and surrounding, lets keep Nigeria clean. </p>
-                    <div className="button">
-                      <button className="delete btn">Delete</button>
-                      <button className="edit btn">Edit</button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+              { u }
           </div>
 
         </Dashboard>
@@ -110,4 +47,19 @@ class Community extends Component {
   }
 }
 
-export default Community
+
+const mapStateToProps = (state) => {
+  return {
+    communityData: state.communityData
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendData: (data, type) => dispatch(sendCommunityData(data, type))
+  }
+}
+
+export default compose(
+  connect(mapStateToProps,mapDispatchToProps)
+)(Community)

@@ -7,10 +7,12 @@ import {
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import userData from './reducers/user';
+import communityData from './reducers/community';
 import ui from './reducers/ui';
 
 const appReducer = combineReducers({
   userData: userData,
+  communityData: communityData,
   ui:ui
 });
 

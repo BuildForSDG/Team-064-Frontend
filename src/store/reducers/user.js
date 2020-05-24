@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 import { SET_USER, FETCH_USER_DATA_REQUEST, FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_FAILURE, SIGN_USER_OUT} from '../actions/actionTypes';
-// import { GET_USER_DATA } from '../actions/actionTypes';
 
 const initialState = {
   loading:'false',
@@ -20,8 +19,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         userData: action.payload,
-        loading: 'done',
-        loggedIn: 'true'
+        loading: 'done'
       }
     case FETCH_USER_DATA_FAILURE:
       return {

@@ -18,7 +18,6 @@ class Dashboard extends Component {
     let { fetchData, userData } = this.props
     if (userData.userData.length === 0) {
       fetchData(isAuthenticated())
-      // console.log('hmmm')
     }
     this.signOut = this.signOut.bind(this)
   }
@@ -28,31 +27,23 @@ class Dashboard extends Component {
     window.location.reload(true);
   }
 
-  componentDidMount() {
+  render() {
+    let nav;
+    // let { loading, userData, error, errorMessage } = this.props.userData
     switch (isAuthType()){
       case 'customer':
-        this.nav = <CustomerNav/>;
+        nav = <CustomerNav/>;
         break;
       case 'agent':
-        this.nav = <AgentNav/>;
+        nav = <AgentNav/>;
         break;
       case 'admin':
-        this.nav = <AdminNav/>;
+        nav = <AdminNav/>;
       default:
-        this.nav = <li><a href="" className="asideAnchor">Please reload...</a></li>;
-
+        nav = <li><a href="" className="asideAnchor">Please reload...</a></li>;
     }
-  }
-
-  render() {
-    let { loading, userData, error, errorMessage } = this.props.userData
-    if (userData.length === 0) {
-      if (loading === 'true') {
-        return (<div>loading</div>)
-      } else if (error === 'true') {
-        return (<div><h3>{errorMessage} <br /> Please try again later.</h3></div>)
-      }
-    } else {
+    
+    if(isAuthenticated()) {
       return (
         <React.Fragment>
           <div className="panel_header">
@@ -75,7 +66,7 @@ class Dashboard extends Component {
 
 
             <div className="link">
-              { this.nav }
+              { nav }
             </div>
 
             <div className="content">
