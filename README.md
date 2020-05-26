@@ -2,6 +2,8 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 
 [![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/478854b146be4d938b76f8a80e43f7bd)](https://www.codacy.com/gh/BuildForSDG/Team-064-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-064-Frontend&utm_campaign=Badge_Grade)
+
 
 ## About
 
