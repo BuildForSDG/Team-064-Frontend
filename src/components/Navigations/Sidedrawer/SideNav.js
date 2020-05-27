@@ -55,20 +55,18 @@ class SideNav extends Component {
       <Col className="w-25">
         {
           /* items = just array AND map() loops thru that array AND item is param of that loop */
-          items.map((item) => {
-            return (
-              /* Return however many NavItems in array to be rendered */
-              <NavItem
-                path={item.path}
-                name={item.name}
-                onItemClick={this.onItemClick}
-                /* Simply passed an entire function to onClick prop */
+          items.map((item) => (
+            /* Return however many NavItems in array to be rendered */
+            <NavItem
+              path={item.path}
+              name={item.name}
+              onItemClick={this.onItemClick}
+              /* Simply passed an entire function to onClick prop */
 
-                active={item.path === activePath}
-                key={item.key}
-              />
-            );
-          })
+              active={item.path === activePath}
+              key={item.key}
+            />
+          ))
         }
       </Col>
     );
