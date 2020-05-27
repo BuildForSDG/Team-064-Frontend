@@ -1,31 +1,42 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import Grid, { Typography, Link } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const styles = (theme) => ({
-  ...theme.spreadthis
-});
 class AdminLogin extends Component {
   render() {
     return (
-      <Grid container justify="center" alignitems="center">
-        <Grid item xs>
-          <TextField id="standard-password-input" label="email" type="text" />
-          <TextField id="standard-password-input" label="Password" type="password" autoComplete="current-password" />
-          <Button variant="contained" color="primary">
-            Sign Up
-          </Button>
-          <Typography>
-            forgot password? <Link href="#">click here</Link>
-          </Typography>
-        </Grid>
-      </Grid>
+      <Container>
+        <Row>
+          <Col className="mt-5">
+            <Form>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+              <div className="d-flex justify-content-center">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
-export default withStyles(styles)(AdminLogin);
+export default AdminLogin;
