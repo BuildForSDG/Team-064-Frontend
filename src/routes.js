@@ -3,6 +3,7 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+// eslint-disable-next-line object-curly-newline
 import { Router, Route as DefaultRoute, Switch, Redirect } from 'react-router-dom';
 
 import history from './history';
