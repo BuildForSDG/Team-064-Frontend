@@ -5,7 +5,10 @@ export default function Side(items) {
   return (
     <Fragment>
       <ListGroup variant="flush">
-        {items.map(({ label, name, items: subItems, ...rest }) => (
+        {
+        items.map(({
+          label, name, items: subItems, ...rest
+        }) => (
           <ListGroup.Item style={{ paddingLeft: 18 }} key={name} button {...rest}>
             {label}
             {Array.isArray(subItems) ? (
