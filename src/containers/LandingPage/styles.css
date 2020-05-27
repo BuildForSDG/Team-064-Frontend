@@ -5,10 +5,12 @@
   justify-content: center;
   flex-direction: row;
 }
+
 .columnWrapper {
   flex-grow: 1;
   flex-basis: 600;
 }
+
 .input {
   display: block;
 }

@@ -1,42 +1,34 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+/* eslint-disable class-methods-use-this */
+import React, { Component, Fragment } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
 
-// MUI Stuff
-import AppBar from '@material-ui/core/AppBar';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import withStyles from '@material-ui/core/styles/withStyles';
-
-// import NavigationItem from '../NavigationItem';
-import classes from './style.css';
-
-const styles = (theme) => ({
-  ...theme.spreadthis,
-  root: {
-    color: 'green',
-    margin: '0 0 300px 0'
+class Index extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar.Brand href="#home">
+            <img alt="" src="/logo.svg" width="30" height="30" className="d-inline-block align-top" /> Broomy
+          </Navbar.Brand>
+        </Navbar>
+        {/* authenticated = (
+        <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">
+          <img alt="" src="/logo.svg" width="30" height="30" className="d-inline-block align-top" /> Broomy
+        </Navbar.Brand>
+      </Navbar>
+       ) : (
+        <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">
+          <img alt="" src="/logo.svg" width="30" height="30" className="d-inline-block align-top" /> Broomy
+        </Navbar.Brand>
+      </Navbar>
+       )
+       */}
+      </Fragment>
+    );
   }
-});
+}
 
-const Index = (props) => (
-  <AppBar position="static">
-    <Toolbar>
-      <Grid container justify="space-between">
-        <Grid>
-          <Typography variant="h6">Cleaner City</Typography>
-        </Grid>
-        <Grid>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-        </Grid>
-      </Grid>
-    </Toolbar>
-  </AppBar>
-);
-
-export default withStyles(styles)(Index);
+export default Index;
