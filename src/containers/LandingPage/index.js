@@ -14,6 +14,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import NavBar from '../../components/Navigations/NavBar/index';
 import './styles.css';
 
 class LandingPage extends Component {
@@ -75,6 +76,7 @@ class LandingPage extends Component {
       <Fragment>
         <Container className="mt-5">
           <Row className="mt-5">
+            <Col></Col>
             <Col className="mt-5">
               <Jumbotron>
                 <h1 className="text-center">Cleaner city initiative!</h1>

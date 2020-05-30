@@ -9,9 +9,9 @@ import { Router, Route as DefaultRoute, Switch, Redirect } from 'react-router-do
 import history from './history';
 import LandingPage from './containers/LandingPage';
 import AgentSignUp from './components/Screens/Auth/AgentSignUp';
-import NavBar from './components/Navigations/NavBar/index';
 import AdminLogin from './components/Screens/Auth/AdminLogin';
-import CustomerDashboard from './components/Screens/Auth/CustomerDashboard';
+import CustomerDashboard from './views/Dashboard/CustomerDashboard';
+import Navbar from './components/Navigations/NavBar/index';
 import Signup from './components/Screens/Auth/Signup';
 import Profile from './components/Screens/Auth/Profile';
 
@@ -42,7 +42,7 @@ const Route = ({ component: Component, ensureNonAuth, ...rest }) => (
 
 export default () => (
   <Router history={history}>
-    <NavBar />
+    <Navbar />
     <Switch>
       <Route ensureNonAuth exact path="/" component={LandingPage} />
       <Route path="/signup" exact component={Signup} />

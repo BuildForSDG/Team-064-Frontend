@@ -5,12 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 class Profile extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
