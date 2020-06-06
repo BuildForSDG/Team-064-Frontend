@@ -3,11 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-<<<<<<< HEAD
 import App from './app';
-=======
-import App from './App';
->>>>>>> ba4f362765dba8c4d40f212c33ce1e67d2549694
 import * as serviceWorker from './serviceWorker';
 
 // NOTE: Do not adjust this file. Contact the team before making changes to this file.
