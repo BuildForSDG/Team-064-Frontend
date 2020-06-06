@@ -8,7 +8,10 @@ import SecureLS from 'secure-ls';
 const ls = new SecureLS();
 
 export const isAuthenticated = () => ls.get('token');
+<<<<<<< HEAD
 export const isAuthType = () => ls.get('refresh');
+=======
+>>>>>>> ba4f362765dba8c4d40f212c33ce1e67d2549694
 
 // export const getAuthorizationHeader = () => `Bearer ${isAuthenticated()}`;
 

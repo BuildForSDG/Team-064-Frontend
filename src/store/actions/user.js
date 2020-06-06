@@ -1,6 +1,10 @@
 /* eslint-disable linebreak-style */
+<<<<<<< HEAD
 import axios from 'axios'
 import { SET_USER, FETCH_USER_DATA_REQUEST, FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_FAILURE, SIGN_USER_OUT } from './actionTypes';
+=======
+import { SET_USER } from './actionTypes';
+>>>>>>> ba4f362765dba8c4d40f212c33ce1e67d2549694
 import { userUiStartLoading, userUiStopLoading } from './ui';
 
 export const setUser = (user) => ({
@@ -8,6 +12,7 @@ export const setUser = (user) => ({
   user
 });
 
+<<<<<<< HEAD
 export const fetchUserDataRequest = () => ({ type: FETCH_USER_DATA_REQUEST})
 export const fetchUserDataSuccess = (userData) => ({ type: FETCH_USER_DATA_SUCCESS, payload: userData})
 export const fetchUserDataFailure = (error) => ({ type: FETCH_USER_DATA_FAILURE, payload: error})
@@ -38,6 +43,8 @@ export const fetchUserData = (name) => async (dispatch) => {
 
 
 
+=======
+>>>>>>> ba4f362765dba8c4d40f212c33ce1e67d2549694
 export const getUser = () => async (dispatch) => {
   try {
     // Make UI start loading was request started
