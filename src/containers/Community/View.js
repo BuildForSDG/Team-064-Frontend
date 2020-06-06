@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import Dashboard from '../Dashboard'
-import flower from '../../assets/image.jpg'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
-import CommView from '../../components/Screens/CommView'
+import Payment from '../../components/Payment'
 import { isAuthType } from '../../services/Auth'
 import { Link } from 'react-router-dom'
-
 
 class View extends Component {
   constructor(props) {
@@ -15,7 +13,6 @@ class View extends Component {
 
     this.deleting = this.deleting.bind(this)
   }
-
 
   componentDidMount() {
     let id = this.props.match.params.id * 1;
@@ -44,8 +41,7 @@ class View extends Component {
     let button;
     switch (isAuthType()) {
       case 'customer':
-        button = (id) => { return (<Link to={'/donate/'+ id}><div className="btn_view">
-          <button type="button" name="button" className="btn_donate btn delete">Donate</button></div></Link>)};
+        button = (id) => { return ( <Payment info={{view:'community',id}} /> )};
         break;
       case 'admin':
         button = (id) => { return(<div className="btn_view">
@@ -66,6 +62,8 @@ class View extends Component {
           u = <ul className="card">
                 <React.Fragment>
                   {data && data.map(comm => {
+                    let eachPara = comm.details.split(/[\r\n]+/);
+                    let allDetails = eachPara && eachPara.map( (eachOne, index) => <p key={index}> {eachOne} </p>)
                     return (
                       <div className="community_container containerFull" key={comm.id}>
                         <div className="image">
@@ -90,7 +88,7 @@ class View extends Component {
                           </div>
                         </div>
                         <div className="text">
-                          {comm.details}
+                          {allDetails}
                         </div>
                         {button(comm.id)}
                       </div>
@@ -98,7 +96,6 @@ class View extends Component {
                   })}
                 </React.Fragment>
               </ul>;
-          // u = <ul className="card"><CommView data={data} /></ul>;
         } else {
           u = <div className="title_big">Page not found</div>;
         }

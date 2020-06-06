@@ -91,7 +91,7 @@ class Login extends React.Component {
 	render() {
 		let { email_signIn, password_signIn, keep_signIn, username_signUp, password_signUp, password_repeat, email_signUp } = this.state
     let { loading, error, errorMessage, userData } = this.props.userData
-    // console.log(this.props.userData)
+    console.log(this.props.userData)
 		let u = '';
 		let f = ''
     error === 'true' && errorMessage !== ''  ? (f = <span className="error">{errorMessage}</span>) :

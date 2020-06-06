@@ -3,9 +3,8 @@ import Dashboard from '../Dashboard'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
-import flower from '../../assets/image.jpg'
 
-class Edit extends React.PureComponent {
+class Edit extends Component {
   constructor(props) {
     super(props)
 
@@ -80,7 +79,6 @@ class Edit extends React.PureComponent {
     communityData = communityData.communityData;
     if (id) {
       if (!isNaN(id)) {
-        // console.log('you mounted')
         if (communityData.length === 0) {
           sendData(id, 'get');
         }else{
@@ -97,14 +95,12 @@ class Edit extends React.PureComponent {
     let { loading, communityData } = this.props.communityData
     if (this.props !== prevProps) {
       if(loading === 'done' && communityData.submitted === 'true' && !id){
-        // this.setState({submitted: 'true'})
         this.cleanSlate();
       }else if(loading === 'done' && communityData.submitted === 'true' && id) {
         this.props.history.push('/community')
       }
       if (!isNaN(id)) {
         if (loading === 'done') {
-          // console.log('you updated')
           if (communityData.error) {
             if (communityData.error.error === "true") {
               this.props.history.push('/community')
@@ -128,7 +124,7 @@ class Edit extends React.PureComponent {
       let { communityData } = this.props.communityData;
       let data = communityData.data.find(comm => comm.id === id);
       if ((data.file_name === imagePreviewUrl) && (data.location === location) && (data.amount === amount) && (data.details === details)) {
-        console.log('please type something')
+        this.clsBtn.current.style.display = "block";
         return null
       } else {
         formData.append('type', 'update');
@@ -148,21 +144,19 @@ class Edit extends React.PureComponent {
 
   render() {
     let { location, amount, details, imagePreviewUrl, submitted} = this.state
-    let { loading, error, errorMessage, communityData } = this.props.communityData
-    console.log(this.props.communityData)
-    console.log(submitted)
+    let { loading, error, errorMessage } = this.props.communityData
     let u = '';
-    let f = '';
     if (loading === 'done' && submitted === 'true' ) {
-      u = 'submit'; this.clsBtn.current.style.display = "block"; f = 'Data has been submitted successfully';
+      console.log('done')
+      u = 'submit';
     } else {
       if (loading === 'true') { u = <div id="loader"></div> } else { u = 'submit'; }
     }
-    error === 'true' && errorMessage !== '' ? (f = errorMessage) : (f = f)
+    error === 'true' && errorMessage !== '' ? (this.notif = errorMessage) : (this.notif = this.notif)
     return (
       <React.Fragment>
         <Dashboard>
-          <div className="notif" ref={this.clsBtn}>{f} <span onClick={this.close}>&#x274E;</span> </div>
+          <div className="notif" ref={this.clsBtn}>Please type something<span onClick={this.close}>&#x274E;</span> </div>
           <form encType="multipart/form-data" method="post" onSubmit={this.handleSubmit}>
             <div className="community_container containerFull">
               <label htmlFor="file" className="file_label"> <img src={imagePreviewUrl} alt="" />
