@@ -1007,11 +1007,11 @@ p {
  
  .community_container .amount_edit_cover .amount_edit{
    display: inline-block;
-   width: 200px;
+   width: 12em;
    font-size: 1.7em;
    border: 3px solid lightgray;
    border-radius: 0.3rem;
-   padding: 0em 0 0em 1.5em;
+   padding: 0em 0 0em 1.8em;
  }
  
  .community_container .amount_edit_label{
@@ -1026,7 +1026,7 @@ p {
    position: absolute;
    padding-right: 0.6em;
    top: 5px;
-   right: 6em;
+   right: 9em;
    color: #686767;
    font-size: 2em;
  }
