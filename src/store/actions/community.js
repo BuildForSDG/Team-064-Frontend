@@ -38,9 +38,6 @@ export const sendCommunityData = (data, type) => async (dispatch) => {
     // axios.post('https://johnerry.000webhostapp.com/editor.php', data)
     hm
     .then( response => {
-      // const communityData = response.data
-      // console.log(response.data)
-      // setTimeout(function(){ dispatch(fetchCommunityDataSuccess(response.data)) }, 5000);
       dispatch(fetchCommunityDataSuccess(response.data))
     })
     .catch(error => {
@@ -50,5 +47,4 @@ export const sendCommunityData = (data, type) => async (dispatch) => {
 
   } catch (error) {
   }
-
 }

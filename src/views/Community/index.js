@@ -19,7 +19,8 @@ class Community extends Component {
     if (communityData.communityData.length === 0) {
       sendData('list', 'get');
     } else {
-      if (communityData.communityData.data.length === 1) {
+      console.log(communityData)
+      if (communityData.communityData.data.length < 2) {
         sendData('list', 'get');
       }
     }

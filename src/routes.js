@@ -7,12 +7,12 @@ import { Router, Route as DefaultRoute, Switch, Redirect} from 'react-router-dom
 import history from './history';
 import Login from './views/Pages/Login'
 import Register from './views/Pages/Register'
-import Page404 from './views/Pages/Page404'
 import DefaultLayout from './containers/DefaultLayout';
+import { isAuthEmail, isAuthUserType } from './services/Auth'
 
 // @desc  A function to check if user is authenticated. Check if token exists
 // @ex    const isAuth = isAuthenticated()
-const isAuthenticated = () => true;
+// const isAuthenticated = () => true;
 
 // @desc    This is a function that create protected/private routes.
 //          It makes use of isAuthenticated function to check if the user
@@ -22,12 +22,12 @@ const isAuthenticated = () => true;
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <DefaultRoute
     {...rest}
-    render={(props) => (isAuthenticated() ? (
+    render={(props) => (isAuthEmail() && isAuthUserType() ? (
         <Component {...props} />
     ) : (
         <Redirect
           to={{
-            pathname: '/'
+            pathname: '/login'
           }}
         />
     ))
@@ -35,9 +35,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-// const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
-// const Login = React.lazy(() => import('./views/Pages/Login'));
-// const Register = React.lazy(() => import('./views/Pages/Register'));
 // @desc    This is a function that create default/public/unprotected routes.
 // @use     <Route exact path="<name of path>" component={Component to render} />
 // @ex      <Route exact path="/" component={LandingPage} />
@@ -52,9 +49,7 @@ export default () => (
     <Switch>
       <Route ensureNonAuth exact path="/login" component={Login} />
       <Route ensureNonAuth exact path="/register" component={Register} />
-      {/* <PrivateRoute exact path="/community" component={Community} /> */}
       <PrivateRoute path="/" name="Home" component={DefaultLayout} />
-      <Route component={Page404} />
     </Switch>
   </Router>
 );

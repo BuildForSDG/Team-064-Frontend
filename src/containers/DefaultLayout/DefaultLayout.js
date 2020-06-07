@@ -15,9 +15,9 @@ import {
 import navigation from '../../_nav';
 // routes config
 import routes from '../../routeList';
-
-const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
-const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
+import { removeAuthenticatedState } from '../../services/Auth'
+import DefaultFooter from './DefaultFooter'
+import DefaultHeader from './DefaultHeader'
 
 class DefaultLayout extends Component {
   constructor(props) {
@@ -26,15 +26,13 @@ class DefaultLayout extends Component {
     this.state = {
        
     }
-    this.loading = this.loading.bind(this)
     this.signOut = this.signOut.bind(this)
   }
   
 
-  loading () {return <div className="animated fadeIn pt-1 text-center">Loading...</div>}
-
   signOut(e) {
     e.preventDefault()
+    removeAuthenticatedState()
     this.props.history.push('/login')
   }
 
@@ -45,9 +43,7 @@ class DefaultLayout extends Component {
     return (
       <div className="app">
         <AppHeader fixed>
-          <Suspense  fallback={this.loading()}>
             <DefaultHeader onLogout={e=>this.signOut(e)}/>
-          </Suspense>
         </AppHeader>
         <div className="app-body">
           <AppSidebar fixed display="lg">
@@ -58,7 +54,6 @@ class DefaultLayout extends Component {
             <AppBreadcrumb appRoutes={routes} router={router}/>
             
             <Container fluid >
-              <Suspense fallback={this.loading()}>
                 <Switch>
                   {routes.map((route, idx) => {
                     return route.component ? (
@@ -72,16 +67,13 @@ class DefaultLayout extends Component {
                         )} />
                     ) : (null);
                   })}
-                  {/* <Redirect from="/" to="/order" /> */}
+                  {/* <Redirect from="/" to="/dashboard" /> */}
                 </Switch>
-              </Suspense>
             </Container>
           </main>
         </div>
         <AppFooter>
-          <Suspense fallback={this.loading()}>
             <DefaultFooter />
-          </Suspense>
         </AppFooter>
       </div>
     );

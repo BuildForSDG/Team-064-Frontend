@@ -7,23 +7,23 @@ import SecureLS from 'secure-ls';
 
 const ls = new SecureLS();
 
-export const isAuthenticated = () => ls.get('token');
-export const isAuthType = () => ls.get('refresh');
+export const isAuthEmail = () => ls.get('email');
+export const isAuthUserType = () => ls.get('userType');
 
 // export const getAuthorizationHeader = () => `Bearer ${isAuthenticated()}`;
 
 export const removeAuthenticatedState = () => {
-  ls.remove('token');
-  ls.remove('refresh');
+  ls.remove('email');
+  ls.remove('userType');
 };
 
-export const authenticateUser = (token, refreshToken) => {
-  ls.set('token', token);
-  ls.set('refresh', refreshToken);
+export const authenticateUser = (email, userType) => {
+  ls.set('email', email);
+  ls.set('userType', userType);
 };
 
 export default {
-  isAuthenticated,
+  isAuthEmail,
   removeAuthenticatedState,
   authenticateUser
 };

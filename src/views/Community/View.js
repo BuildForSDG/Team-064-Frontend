@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
 import Payment from '../../components/Payment'
-import { isAuthType } from '../../services/Auth'
+import { isAuthUserType, isAuthEmail, removeAuthenticatedState } from '../../services/Auth'
 import { Link } from 'react-router-dom'
+import Page404 from '../../views/Pages/Page404'
 
 class View extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class View extends Component {
 
 
   render() {
-    console.log(isAuthType())
+    console.log(isAuthUserType())
     let id = this.props.match.params.id * 1;
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
@@ -56,7 +57,8 @@ class View extends Component {
     }
 
     if (isNaN(id)) {
-      u = <div className="title_big">Page not found</div>;
+      // u = <div className="title_big">Page not found</div>;
+      u = <Page404/>;
     } else {
       if (loading === 'done') {
         if (communityData.error.error === "false") {
@@ -98,7 +100,7 @@ class View extends Component {
                 </React.Fragment>
               
         } else {
-          u = <div className="title_big">Page not found</div>;
+          u = <Page404/>;
         }
       } else {
         u = <div className="loader_con"><div id="big_loader"></div></div>;

@@ -1,9 +1,85 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+// import { Offline, Online } from "react-detect-offline";
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { fetchUserData } from '../../../store/actions/user'
+import { isAuthEmail, authenticateUser, isAuthUserType } from '../../../services/Auth'
+import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row, FormFeedback, FormGroup } from 'reactstrap';
+
+
+
+
+
 
 class Login extends Component {
+  constructor(props) {
+		super(props)
+		this.state = {
+			email_signIn: '',
+			password_signIn: '',
+			keep_signIn: false,
+			username_signUp: '',
+			password_signUp: '',
+			password_repeat: '',
+			email_signUp: '',
+			loading: false
+		}
+		this.handleChange = this.handleChange.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+	}
+
+
+	handleChange(e) {
+		this.setState(
+			{
+				[e.target.id]: e.target.value
+			}
+		)
+	}
+
+
+	handleSubmit(e) {
+		e.preventDefault()
+    let { fetchData } = this.props
+		fetchData(this.state.email_signIn)
+		this.setState({
+			email_signIn: '',
+			password_signIn: '',
+			keep_signIn: false,
+			username_signUp: '',
+			password_signUp: '',
+			password_repeat: '',
+			email_signUp: '',
+			loading: true
+		})
+	}
+
+	componentDidUpdate(prevProps) {
+    let { userData } = this.props.userData
+		if (this.props !== prevProps) {
+			if (isAuthEmail() && isAuthUserType()) {
+				this.props.history.push('/dashboard')
+			} else {
+				if (userData.email !== '' && userData.errorMessage === '') {
+					authenticateUser(userData.email, userData.email)
+					this.props.history.push('/dashboard')
+				}
+			}
+		}
+  }
+  
+
   render() {
+    let u = '';
+		let f = '';
+    let { email_signIn, password_signIn, keep_signIn, username_signUp, password_signUp, password_repeat, email_signUp } = this.state
+    let { loading, error, errorMessage, userData } = this.props.userData
+    error === 'true' && errorMessage !== ''  ? (f = errorMessage) :
+    ( userData.errorMessage !== '' ? (f = userData.errorMessage) : (f = '')    )
+		loading === 'done' ? (u = 'Login') :
+      (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Login'))
+      
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -12,28 +88,32 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
+
+                      <span className="error">{f}</span>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Username" autoComplete="username" required/>
                       </InputGroup>
+
+                      <span className="error">{f}</span>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="current-password" required/>
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4" style={{width:'8em'}}>{u}</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -63,4 +143,18 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+	return {
+		userData: state.userData
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		fetchData: (name) => dispatch(fetchUserData(name))
+	}
+}
+
+export default compose(
+	withRouter,
+	connect(mapStateToProps, mapDispatchToProps)
+)(Login)
