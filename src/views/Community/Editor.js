@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Dashboard from '../Dashboard'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
@@ -91,8 +90,8 @@ class Edit extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let id = 1;
-    // let id = this.props.match.params.id * 1;
+    // let id = 1;
+    let id = this.props.match.params.id * 1;
     let { loading, communityData } = this.props.communityData
     if (this.props !== prevProps) {
       if(loading === 'done' && communityData.submitted === 'true' && !id){
@@ -156,8 +155,6 @@ class Edit extends Component {
     error === 'true' && errorMessage !== '' ? (this.notif = errorMessage) : (this.notif = this.notif)
     return (
       <React.Fragment>
-        {/* <Dashboard> */}
-          <div className="notif" ref={this.clsBtn}>Please type something<span onClick={this.close}>&#x274E;</span> </div>
           <form encType="multipart/form-data" method="post" onSubmit={this.handleSubmit}>
             <div className="community_container containerFull">
               <label htmlFor="file" className="file_label"> <img src={imagePreviewUrl} alt="" />
@@ -183,7 +180,7 @@ class Edit extends Component {
               <button type="submit" name="button" className="btn_donate btn edit"> {u} </button>
             </div>
           </form>
-        {/* </Dashboard> */}
+          <div className="notif" ref={this.clsBtn}>Please type something<span onClick={this.close}>&#x274E;</span> </div>
 
       </React.Fragment>
     )

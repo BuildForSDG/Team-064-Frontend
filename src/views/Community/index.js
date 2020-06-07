@@ -58,7 +58,7 @@ class Community extends Component {
               {communityData.data && communityData.data.map(comm => {
               let eachPara = comm.details.split(/[\r\n]+/);
               return (
-              <Col xs="12" sm="6" md="4" key={comm.id} style={{margin:'20px 0'}}>
+              <Col xs="12" sm="6" md="4" key={comm.id} style={{margin:'0 0 30px 0px'}}>
                 <Card className="card__item">
                   <Link to={'/community/' + comm.id}>
                     <img src={comm.file_name} alt="" className="card__image" />
@@ -83,12 +83,9 @@ class Community extends Component {
     return (
       <React.Fragment>
 
-        {/* <Dashboard> */}
           <div className="community_container">
             { u }
           </div>
-
-        {/* </Dashboard> */}
 
       </React.Fragment>
     )

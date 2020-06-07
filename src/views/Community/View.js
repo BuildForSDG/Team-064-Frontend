@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Dashboard from '../Dashboard'
+// import Dashboard from '../Dashboard'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
@@ -108,9 +108,9 @@ class View extends Component {
     return (
       <React.Fragment>
 
-        <Dashboard>
+        {/* <Dashboard> */}
           {u}
-        </Dashboard>
+        {/* </Dashboard> */}
 
       </React.Fragment>
     )
