@@ -992,6 +992,8 @@ p {
  .community_container .title .title_input {
    font-size: 2em;
    width: 100%;
+   border: 3px solid lightgray;
+   border-radius: 0.3rem;
    /* padding: 0.3em 0 0.3em 0.3em; */
  }
 
@@ -1003,18 +1005,29 @@ p {
    width: 100%;
  }
  
- .community_container .amount_edit_cover .amount_edit, .community_container .amount_edit_label{
+ .community_container .amount_edit_cover .amount_edit{
+   display: inline-block;
    width: 200px;
    font-size: 1.7em;
-   padding: 0.2em 0 0.2em 1.5em;
+   border: 3px solid lightgray;
+   border-radius: 0.3rem;
+   padding: 0em 0 0em 1.5em;
  }
  
- 
+ .community_container .amount_edit_label{
+   display: inline-block;
+   width: auto;
+   font-size: 1.7em;
+   padding: 0.2em 0 0.2em 1.5em;
+   margin-right: 0.5em;
+   color: #686767;
+ }
  .community_container .amount_edit_cover span {
    position: absolute;
    padding-right: 0.6em;
    top: 5px;
-   right: 210px;
+   right: 6em;
+   color: #686767;
    font-size: 2em;
  }
  
@@ -1023,9 +1036,11 @@ p {
    width: 100%;
    outline: none;
    padding: 1em;
-   min-height: 150px;
+   min-height: 10em;
+   border: 3px solid lightgray;
+   border-radius: 0.3rem;
    font-size: 1.5em;
-   margin: 1.5em;
+   margin: 1.5em 0.8em;
  }
  /* THIS IS FOR EDIT */
  
