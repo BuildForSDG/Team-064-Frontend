@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
+import {
+  Input
+} from 'reactstrap';
 
 class Edit extends Component {
   constructor(props) {
@@ -167,16 +170,15 @@ class Edit extends Component {
               <input type="file" id="file" name="file" className="file" accept="image/*" onChange={this.handleFileChange} ref={this.fileRef} />
               <div className="title">
                 <label htmlFor="location"></label>
-                <input type="text" id="location" name="location" className="title_input" value={location} onChange={this.handleChange} placeholder="Enter location here" required />
+                <Input type="text" id="location" name="location" className="title_input" value={location} onChange={this.handleChange} placeholder="Enter location here" required />
               </div>
               <hr className="hr" />
               <div className="amount_edit_cover">
                 <label htmlFor="amount" className="amount_edit_label">Fund:</label>
-                <span>&#8358;</span><input type="text" name="amount" id="amount" value={amount} className="amount_edit" onChange={this.handleChange} placeholder="Amount" required />
+                <span>&#8358;</span><Input type="text" name="amount" id="amount" value={amount} className="amount_edit" onChange={this.handleChange} placeholder="Amount" required />
               </div>
 
-              <textarea name="name" id="details" name="details" className="detail_textarea" value={details} onChange={this.handleChange} placeholder="Details here.     Press Enter key **TWICE(2)** to goto a new  paragraph" required>
-              </textarea>
+              <Input type="textarea" name="name" id="details" name="details" className="detail_textarea" value={details} onChange={this.handleChange} placeholder="Details here.     Press Enter key **TWICE(2)** to goto a new  paragraph" required/>
               <button type="submit" name="button" className="btn_donate btn edit"> {u} </button>
             </div>
           </form>

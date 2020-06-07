@@ -1,7 +1,12 @@
 import React from 'react'
 import creditcard from '../../assets/creditcard.png'
 import date from '../../assets/date.png'
+import coin from '../../assets/coins.png'
 import locked from '../../assets/locked.png'
+
+import {
+  Input
+} from 'reactstrap';
 
 
 class Payment extends React.PureComponent {
@@ -64,7 +69,6 @@ class Payment extends React.PureComponent {
   render() {
     let info = this.props.info;
     let { card_number, expiry_date, cvs, amount} = this.state
-    console.log(info.id)
     return (
       <React.Fragment>
         <div className="payment_h2">Payment Information</div>
@@ -73,23 +77,24 @@ class Payment extends React.PureComponent {
             <div className="cardNumber">
               <label htmlFor="card_number">Card Number</label><br />
               <span className="icon"> <img src={creditcard} alt="" /> </span>
-              <input id="card_number" className="input" type="text" name="" value={card_number} pattern="[\d ]*" onChange={this.handleChange} maxLength="24" placeholder=" 0000 - 0000 - 0000 - 0000" required />
+              <Input id="card_number" className="input" type="text" name="" value={card_number} pattern="[\d ]*" onChange={this.handleChange} maxLength="24" placeholder=" 0000 - 0000 - 0000 - 0000" required />
             </div>
             <div className="inlineElement">
               <div className="exp">
                 <label htmlFor="expiry_date">Expiration Date</label><br />
                 <span className="icon"><img src={date} alt="" /> </span>
-                <input id="expiry_date" className="expiry" type="text" name="" value={expiry_date} pattern="[\d/]*" onChange={this.handleChange} maxLength="5" placeholder=" 00/00" required />
+                <Input id="expiry_date" className="expiry" type="text" name="" value={expiry_date} pattern="[\d/]*" onChange={this.handleChange} maxLength="5" placeholder=" 00/00" required />
               </div>
               <div className="cvs">
                 <label htmlFor="cvs">CVC</label><br />
                 <span className="icon"><img src={locked} alt="" /> </span>
-                <input id="cvs" className="cv" type="text" name="" value={cvs} pattern="[\d]*" onChange={this.handleChange} maxLength="3" placeholder="000" required />
+                <Input id="cvs" className="cv" type="text" name="" value={cvs} pattern="[\d]*" onChange={this.handleChange} maxLength="3" placeholder="000" required />
               </div>
             </div>
             <div className="amountElement">
-              <label htmlFor="amount" className="amount"> Amount (₦) </label>
-              <input id="amount" className="input amtInp" type="text" name="" value={amount} pattern="[\d,]*" onChange={this.handleChange} maxLength="20" placeholder="min. ₦200" required />
+              <label htmlFor="amount"> Amount (₦) </label><br/>
+              <span className="icon"><img src={coin} alt="" /> </span>
+              <Input id="amount" className="input" type="text" name="" value={amount} pattern="[\d,]*" onChange={this.handleChange} maxLength="20" placeholder="min. ₦200" required />
             </div>
           </div>
           <div className="btn_view">

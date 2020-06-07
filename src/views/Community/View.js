@@ -40,7 +40,8 @@ class View extends Component {
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
     let button;
-    switch (isAuthType()) {
+    let auth = 'customer';
+    switch (auth){
       case 'customer':
         button = (id) => { return ( <Payment info={{view:'community',id}} /> )};
         break;
