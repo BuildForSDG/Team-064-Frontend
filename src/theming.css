@@ -309,12 +309,12 @@ p {
   text-transform: lowercase;
  }
 
-
- .commuity_container .btn_donate, .community_container .btn_view button {
+.community_container .card__item .button .btn_donate, .community_container .btn_view button {
   overflow: hidden;
   width: 100%;
   text-align: center;
  }
+
 
  .community_container .btn:active {
   transform: translateY(1px);

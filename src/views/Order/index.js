@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 // import Dashboard from '../Dashboard'
 import bag from '../../assets/garbage_bag.jpg'
+import { isAuthEmail, authenticateUser, isAuthUserType } from '../../services/Auth'
+
 
 class Order extends Component {
   render() {
     return (
       <React.Fragment>
-
-        {/* <Dashboard> */}
           <div className="order_content">
             <div className="bag">
               <p className="bag-head"><span className="uppercase">Your Bag</span> - 1 item</p>
@@ -61,9 +61,6 @@ class Order extends Component {
               </button>
             </div>
           </div>
-
-
-        {/* </Dashboard> */}
 
       </React.Fragment>
     )

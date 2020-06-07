@@ -1,115 +1,115 @@
 import { isAuthUserType } from './services/Auth'
 
-const customer =  {
+export const customer =  {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'icon-speedometer',
+      icon: 'fa fa-user-circle',
     },
     {
       name: 'Order',
       url: '/dashboard',
-      icon: 'icon-pencil',
+      icon: 'fa fa-cart-plus',
     },
     {
       name: 'Community',
       url: '/community',
-      icon: 'icon-pencil',
+      icon: 'fa fa-globe',
     },
     {
       name: 'History',
       url: '/history',
-      icon: 'icon-pencil',
+      icon: 'fa fa-history',
     },
     {
       name: 'Support',
       url: '/support',
-      icon: 'icon-pencil',
+      icon: 'fa fa-question-circle',
     },
     {
       name: 'About',
       url: '/about',
-      icon: 'icon-pencil',
+      icon: 'fa fa-info-circle',
     },
   ],
 };
 
-const agent =  {
+export const agent =  {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'icon-speedometer',
+      icon: 'fa fa-user-circle',
     },
     {
       name: 'Pickups',
       url: '/pickups',
-      icon: 'icon-star',
+      icon: 'fa fa-truck',
       children: [
         {
           name: 'New',
           url: '/pickups/new',
-          icon: 'icon-star',
+          icon: 'fa fa-plus-circle',
         },
         {
           name: 'Pending',
           url: '/pickups/pending',
-          icon: 'icon-star',
+          icon: 'fa fa-pause-circle-o',
         },
       ],
     },
     {
       name: 'History',
       url: '/history',
-      icon: 'icon-pencil',
+      icon: 'fa fa-history',
     },
     {
       name: 'Support',
       url: '/support',
-      icon: 'icon-pencil',
+      icon: 'fa fa-question-circle',
     },
   ],
 };
 
-const admin =  {
+export const admin =  {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'icon-speedometer',
+      icon: 'fa fa-user-circle',
     },
     {
       name: 'Agents',
       url: '/agent',
-      icon: 'icon-star',
+      icon: 'fa fa-users',
       children: [
         {
           name: 'Add',
           url: '/agent/edit',
-          icon: 'icon-star',
+          icon: 'fa fa-plus-circle',
         },
         {
           name: 'Review',
           url: '/agent/review',
-          icon: 'icon-star',
+          icon: 'fa fa-eye',
         },
       ],
     },
     {
       name: 'Communty',
       url: '/communty',
-      icon: 'icon-star',
+      icon: 'fa fa-globe',
       children: [
         {
           name: 'Add',
           url: '/community/edit',
-          icon: 'icon-star',
+          icon: 'fa fa-plus-circle',
         },
         {
           name: 'Review',
           url: '/community',
-          icon: 'icon-star',
+          icon: 'fa fa-eye',
         },
       ],
     },
@@ -120,25 +120,6 @@ const admin =  {
     },
   ],
 };
-
-
-let nav;
-switch (isAuthUserType()){
-  case 'customer':
-    nav = customer;
-    break;
-  case 'agent':
-    nav = agent;
-    break;
-  case 'admin':
-    nav = admin;
-    break;
-  default:
-    nav = {};
-    break;
-}
-
-export default nav;
 
 // export default {
 //   items: [

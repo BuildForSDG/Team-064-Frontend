@@ -2,6 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { removeAuthenticatedState, isAuthUserType } from '../../services/Auth'
 
 import {
   AppFooter,
@@ -12,10 +13,10 @@ import {
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
 // sidebar nav config
-import navigation from '../../_nav';
+import { customer, agent, admin} from '../../_nav';
+// import navigation from '../../_nav';
 // routes config
 import routes from '../../routeList';
-import { removeAuthenticatedState } from '../../services/Auth'
 import DefaultFooter from './DefaultFooter'
 import DefaultHeader from './DefaultHeader'
 
@@ -28,18 +29,36 @@ class DefaultLayout extends Component {
     }
     this.signOut = this.signOut.bind(this)
   }
-  
+
 
   signOut(e) {
     e.preventDefault()
     removeAuthenticatedState()
-    this.props.history.push('/login')
+    window.location.reload(true);
+    // this.props.history.push('/login')
   }
 
   render() {
     const mystyle = {
       backgroundColor: "white",
     };
+
+    let nav;
+    switch (isAuthUserType()){
+      case 'customer':
+        nav = customer;
+        break;
+      case 'agent':
+        nav = agent;
+        break;
+      case 'admin':
+        nav = admin;
+        break;
+      default:
+        nav = {};
+        break;
+    }
+
     return (
       <div className="app">
         <AppHeader fixed>
@@ -47,7 +66,7 @@ class DefaultLayout extends Component {
         </AppHeader>
         <div className="app-body">
           <AppSidebar fixed display="lg">
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+            <AppSidebarNav navConfig={nav} {...this.props} router={router}/>
             <AppSidebarMinimizer />
           </AppSidebar>
           <main className="main" style={mystyle}>

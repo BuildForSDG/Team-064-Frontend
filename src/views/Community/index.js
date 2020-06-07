@@ -5,7 +5,8 @@ import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
 import { Card, CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom'
-import { isAuthType } from '../../services/Auth'
+import { isAuthUserType, isAuthEmail, removeAuthenticatedState } from '../../services/Auth'
+
 
 class Community extends Component {
   constructor(props) {
@@ -37,8 +38,7 @@ class Community extends Component {
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
     let button;
-    let auth = 'admin';
-    switch (auth){
+    switch (isAuthUserType()){
       case 'customer':
         button = (id) => { return (<Link to={'/community/' + id}><div className="button">
           <button type="button" name="button" className="btn_donate btn delete">donate</button>
