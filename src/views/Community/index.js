@@ -84,7 +84,7 @@ class Community extends Component {
       <React.Fragment>
 
         {/* <Dashboard> */}
-          <div className="comm_container">
+          <div className="community_container">
             { u }
           </div>
 

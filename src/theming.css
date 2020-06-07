@@ -759,206 +759,27 @@ p {
 
 /* this class is same for the three */
 
-.comm_container {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  display: -webkit-box;
-  display: flex;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-  flex-wrap: wrap;
-}
-
-.comm_container  img {
-  height: 300px;
-  width: 100%;
-  background-position: center;
-  object-fit: cover;
-}
-.comm_container a, .comm_container a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-
-.comm_container .card__item {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-flex: 1;
-  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.51);
-  flex: 1 1 auto;
-  height: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-}
-
-/* .comm_container .card .card {
-  background-color: white;
-  border: 1px solid #e2e2da;
-  border-radius: 0.25rem;
-  box-shadow: 0 10px 30px -25px rgba(0, 0, 0, 0.18);
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  overflow: hidden;
-} */
-
-.comm_container .card__item:hover, .comm_container .image:hover,  .comm_container .file_label:hover {
-  box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.51);
-}
-
-.comm_container .card__content {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-flex: 1;
-  flex: 1 1 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  margin-bottom: 1em;
-  padding: 1rem;
-}
-
-.comm_container .card__content .amount {
-  text-align: right;
-  width: 100%;
-  padding: 0em 0 0.5em;
-  font-size: 1.2em;
-  color: black;
-}
-
-.comm_container .card__content .meter {
-  width: 50%;
-  align-self: flex-end;
-}
-
-.comm_container .card__title {
-  color: #5c5a5a;
-  font-size: 1.5rem;
-  font-weight: 500;
-  width: 100%;
-  letter-spacing: 2px;
-  margin: 0.2em 0 0.5em 0;
-  border-bottom: 1px solid lightgray;
-  text-transform: uppercase;
-}
-
-.comm_container .card__content .card__text {
-  -webkit-box-flex: 1;
-  flex: 1 2 auto;
-  line-height: 1.5;
-  margin-bottom: 0.5em;
-}
-
-.comm_container .button {
-  position: absolute;
-  bottom: 0;
-  display: -webkit-box;
-  display: flex;
-  overflow: hidden;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  align-items: flex-start;
-  -webkit-box-orient: horizontal;
-  /* margin-bottom: 0.6em; */
-  -webkit-box-direction: normal;
-  flex-flow: row wrap;
-  width: 100%;
-  overflow: hidden;
-}
-
-.comm_container .btn_view, .containerFull a{
- display: -webkit-box;
- display: flex;
- -webkit-box-orient: horizontal;
- -webkit-box-direction: normal;
- flex-direction: row;
- overflow: hidden;
- width: 100%;
- text-align: center;
-
-}
-
-.comm_container .btn, .comm_container .button a,  .comm_container .btn_view a{
- background-color: white;
- border: 1px solid #cccccc;
- border-radius: 5px;
- color: black;
- width: 49%;
- font-size: 1em;
- /* padding: 0.5rem 0.5em 0.9em 0.5em; */
- color: #fff;
- overflow: hidden;
- text-transform: lowercase;
-}
-
-
-.comm_container .btn_view a {
-  margin-left: auto;
-}
-
-.comm_container .btn_donate {
- overflow: hidden;
- width: 100%;
- text-align: center;
-}
-
-.comm_container .btn:active {
- transform: translateY(1px);
-}
-
-.comm_container .delete {
- background-color: #de575e;
-}
-
-.comm_container .delete:hover {
- background-color: #ca3e45;
- color: white;
-}
-
-.comm_container .edit {
-  margin-left: auto;
-  width: 100%;
- background-color: #0d864a;
-}
-.comm_container .edit:hover {
- background-color: #087740;
- color: white;
-}
-
-.comm_container .card .card {
-  background-color: white;
-  border: 1px solid #e2e2da;
-  border-radius: 0.25rem;
-  box-shadow: 0 10px 30px -25px rgba(0, 0, 0, 0.18);
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.community_container .card .card:hover, .community_container .image:hover,  .community_container .file_label:hover {
+/* 
+.community_container .card__item:hover, .community_container .image:hover,  .community_container .file_label:hover {
   box-shadow: 0 10px 35px -20px rgba(0, 0, 0, 0.51);
-}
+} */
 /* DEL */
-.community_container, .community_container .card {
+.community_container {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 100%;
   height: 100%;
   text-rendering: optimizeLegibility;
-  border-radius: 7px;
+  /* border-radius: 7px; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga" on;
   flex-wrap: wrap;
  }
+
+ .community_container a, .community_container a:hover {
+  text-decoration: none;
+  color: black;
+}
 
  /* ///////////////////////////////////////////// */
  /* this as all in [edit,view,index] */
@@ -974,7 +795,7 @@ p {
    -webkit-box-align: start;
    align-items: flex-start;
    -webkit-box-orient: horizontal;
-   margin-bottom: 0.6em;
+   /* margin-bottom: 0.6em; */
    -webkit-box-direction: normal;
    flex-flow: row wrap;
    width: 100%;
@@ -1007,9 +828,9 @@ p {
  }
 
 
- .community_container .btn_view a {
+ /* .community_container .btn_view a {
    margin-left: auto;
- }
+ } */
 
  .commuity_container .btn_donate {
   overflow: hidden;
@@ -1027,6 +848,7 @@ p {
  
  .community_container .delete:hover {
   background-color: #ca3e45;
+  color: white;
  }
  
  .community_container .edit {
@@ -1036,6 +858,7 @@ p {
  }
  .community_container .edit:hover {
   background-color: #087740;
+  color: white;
  }
  /* this as all in [edit,view,index] */
  /* ///////////////////////////////////////////// */
@@ -1257,49 +1080,31 @@ p {
  
  
  /* THIS IS FOR INDEX */
- .community_container .card {
-  list-style: none;
-  margin: 0;
-  margin: 20px 0 0 0;
-  padding: 0;
- }
- .community_container .card .cards__item {
-   display: inline;
-   padding: 1rem;
-   overflow: hidden;
+ 
+ .community_container .card__item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.51);
+  flex: 1 1 auto;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+ 
+ .community_container .card__item:hover, .community_container .image:hover,  .community_container .file_label:hover {
+   box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.51);
  }
  
- .community_container .card .card {
-   background-color: white;
-   border: 1px solid #e2e2da;
-   border-radius: 0.25rem;
-   box-shadow: 0 10px 30px -25px rgba(0, 0, 0, 0.18);
-   display: -webkit-box;
-   display: flex;
-   -webkit-box-orient: vertical;
-   -webkit-box-direction: normal;
-   flex-direction: column;
-   overflow: hidden;
+ .community_container a img {
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  object-fit: cover;
  }
  
- .community_container .card .card:hover, .community_container .image:hover,  .community_container .file_label:hover {
-   box-shadow: 0 10px 35px -20px rgba(0, 0, 0, 0.51);
- }
- 
- .community_container .card .card img {
-   height: 300px;
-   width: 100%;
-   background-position: center;
-   object-fit: cover;
- }
- 
- .community_container .card .card_image {
-   height: 300px;
-   width: 100%;
-   overflow: hidden;
- }
- 
- .community_container .card .card__content {
+ .community_container .card__content {
    display: -webkit-box;
    display: flex;
    -webkit-box-flex: 1;
@@ -1311,11 +1116,11 @@ p {
    padding: 1rem;
  }
  
- .community_container .card__image::before {
+ /* .community_container .card__image::before {
    content: "";
    display: block;
    padding-top: 56.25%;
- }
+ } */
  
  .community_container .card__content .amount {
    text-align: right;
