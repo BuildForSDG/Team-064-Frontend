@@ -869,9 +869,11 @@ p {
  .containerFull {
    margin: 30px auto;
    width: 90%;
-   box-shadow: 0 10px 30px -25px rgba(0, 0, 0, 0.18);
+   box-shadow: 0 -5px 30px -15px rgba(70, 48, 48, 0.38);
   display: -webkit-box;
   display: flex;
+  box-sizing: border-box;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid #ecece7;
  }
@@ -1092,6 +1094,7 @@ p {
   box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.51);
   flex: 1 1 auto;
   height: 100%;
+  border-radius: 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
@@ -1104,6 +1107,7 @@ p {
  .community_container a img {
   height: 300px;
   width: 100%;
+  border-radius: 5px 5px 0 0 ;
   background-position: center;
   object-fit: cover;
  }

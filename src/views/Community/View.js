@@ -35,6 +35,7 @@ class View extends Component {
 
 
   render() {
+    console.log(isAuthType())
     let id = this.props.match.params.id * 1;
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
@@ -59,8 +60,7 @@ class View extends Component {
       if (loading === 'done') {
         if (communityData.error.error === "false") {
           let data = [communityData.data.find(comm => comm.id === id)];
-          u = <ul className="card">
-                <React.Fragment>
+          u =   <React.Fragment>
                   {data && data.map(comm => {
                     let eachPara = comm.details.split(/[\r\n]+/);
                     let allDetails = eachPara && eachPara.map( (eachOne, index) => <p key={index}> {eachOne} </p>)
@@ -95,7 +95,7 @@ class View extends Component {
                     )
                   })}
                 </React.Fragment>
-              </ul>;
+              
         } else {
           u = <div className="title_big">Page not found</div>;
         }
@@ -108,9 +108,7 @@ class View extends Component {
     return (
       <React.Fragment>
 
-        {/* <Dashboard> */}
           {u}
-        {/* </Dashboard> */}
 
       </React.Fragment>
     )
