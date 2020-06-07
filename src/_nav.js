@@ -48,7 +48,7 @@ export default {
         },
         {
           name: 'Review',
-          url: '/community/edit',
+          url: '/community',
           icon: 'icon-star',
           badge: {
             variant: 'secondary',
