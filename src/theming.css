@@ -733,6 +733,136 @@ p {
 }
 
 
+
+
+
+/* THIS IS FOR HISTORY */
+/* body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  background: whitesmoke;
+} */
+.history {
+  --historyBackground: var(--uiHistoryBackground, 	#20a8d8);
+  /* background-color: yellow; */
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.history .timeline {
+  position: relative;
+  padding: 0.5em 0;
+}
+
+.history .timeline:before{
+  content: "";
+  width: 4px;
+  height: 100%;
+  background-color: var(--historyBackground);
+  position: absolute;
+  left: 2.5em;
+  top: 0;
+}
+
+.history .history_box {
+  position: relative;
+  padding-left: 7em;
+}
+
+.history .history_box:not(:first-of-type){
+  margin-top: 2em;
+}
+
+.history .history_box:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--historyBackground);
+  left: 0;
+  z-index: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.history .history_date{
+  min-width: 5em;
+  position: absolute;
+  left: 0;
+  top: 1.2em;
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding: 1.2em 0.4em;
+  /* margin-top: 0.6em; */
+  text-align: center;
+  box-shadow: 0 -1px 10px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .12);
+  background-color: var(--historyBackground);
+  color: white;
+}
+
+
+.history .month{
+  font-size: 1.1em;
+  font-weight: 800;
+  display: block;
+}
+
+.history .hour{
+  display: block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.history .activity{
+  padding: 0.1em 0em 1em 1em;
+  border-radius: 2px;
+  line-height: 1.5;
+  border-left: 0.2em solid var(--historyBackground);
+  box-shadow: 0 -1px 10px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .12);
+  background-color: whites;
+}
+
+.history .title {
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.history .description {
+  font-size: 1em;
+  color: #5a5a5a;
+  margin-bottom: 1em;
+}
+
+.history .update {
+  font-size: 1.2em;
+}
+
+.history .update .confirmed {
+ color: green;
+}
+
+.history .update .pending {
+  color: #f0ad4e;
+}
+
+.history .update .cancelled {
+  color: #949494;
+}
+
+
+@media screen and (max-width: 640px){
+  .history .history_box:before{
+    top: 40%;
+    transform: translateY(-40%);
+  }
+
+}
+
+/* THIS IS FOR HISTORY */
+
+
+
+
 /* THIS IS FOR PAYMENT IN VIEW.JS */
 
 
