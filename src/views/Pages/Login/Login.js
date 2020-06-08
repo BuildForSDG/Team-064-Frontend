@@ -96,7 +96,7 @@ class Login extends Component {
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
-                            <i className="icon-user"></i>
+                            <i className="fa fa-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Username" autoComplete="username" required/>
@@ -106,7 +106,7 @@ class Login extends Component {
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
-                            <i className="icon-lock"></i>
+                            <i className="fa fa-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="current-password" required/>

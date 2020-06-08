@@ -3,7 +3,7 @@ export const customer =  {
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user-circle',
+      icon: 'fa fa-user',
     },
     {
       name: 'Order',
@@ -38,7 +38,7 @@ export const agent =  {
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user-circle',
+      icon: 'fa fa-user',
     },
     {
       name: 'Pickups',
@@ -75,7 +75,7 @@ export const admin =  {
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user-circle',
+      icon: 'fa fa-user',
     },
     {
       name: 'Agents',

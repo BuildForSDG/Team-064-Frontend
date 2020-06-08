@@ -2,7 +2,8 @@
 // /* eslint-disable no-unused-vars */
 import React from 'react';
 import Providers from './providers';
-import '../node_modules/font-awesome/css/font-awesome.min.css'
+import './fontawesome/font_awesome.css'
+// import '../node_modules/font-awesome/css/font-awesome.min.css'
 import './scss/style.scss';
 
 // // NOTE: Do not adjust this file. Contact the team before making changes to this file.

@@ -16,21 +16,21 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-user"></i>
+                          <i className="fa fa-user"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="text" placeholder="Username" autoComplete="username" />
                     </InputGroup>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
-                        <InputGroupText>@</InputGroupText>
+                        <InputGroupText><i className="fa fa-envelope"></i></InputGroupText>
                       </InputGroupAddon>
                       <Input type="text" placeholder="Email" autoComplete="email" />
                     </InputGroup>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <i className="fa fa-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" placeholder="Password" autoComplete="new-password" />
@@ -38,7 +38,7 @@ class Register extends Component {
                     <InputGroup className="mb-4">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <i className="fa fa-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
