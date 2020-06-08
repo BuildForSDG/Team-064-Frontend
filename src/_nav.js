@@ -1,5 +1,3 @@
-import { isAuthUserType } from './services/Auth'
-
 export const customer =  {
   items: [
     {
@@ -116,7 +114,7 @@ export const admin =  {
     {
       name: 'Customer',
       url: '/customer',
-      icon: 'icon-pencil',
+      icon: 'fa fa-male',
     },
   ],
 };

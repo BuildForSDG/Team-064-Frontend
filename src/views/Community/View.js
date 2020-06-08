@@ -36,7 +36,6 @@ class View extends Component {
 
 
   render() {
-    console.log(isAuthUserType())
     let id = this.props.match.params.id * 1;
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
@@ -57,7 +56,6 @@ class View extends Component {
     }
 
     if (isNaN(id)) {
-      // u = <div className="title_big">Page not found</div>;
       u = <Page404/>;
     } else {
       if (loading === 'done') {
