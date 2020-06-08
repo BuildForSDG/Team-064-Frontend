@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
-import { Card, CardBody, Col, Row } from 'reactstrap';
+import { Card, CardBody, Col, Row, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { isAuthUserType, isAuthEmail, removeAuthenticatedState } from '../../services/Auth'
 
@@ -64,7 +64,8 @@ class Community extends Component {
                     <img src={comm.file_name} alt="" className="card__image" />
                     <div className="card__content">
                         <div className="amount"> <span>Fund:</span> ₦ {comm.amount}</div>
-                        <meter value="13200" min="0" max="50000" className="meter"></meter>
+                        {/* <meter value="13200" min="0" max="50000" className="meter"></meter> */}
+                        <Progress color="red" value="25" className="mb-3">25%</Progress>
                         <div className="card__title"> {comm.location} </div>
                         <p className="card__text"> {eachPara[0]} </p>
                     </div>

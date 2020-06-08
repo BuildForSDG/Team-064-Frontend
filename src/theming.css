@@ -298,7 +298,7 @@ p {
 
  }
 
- .community_container .btn, .community_container .button a,  .community_container .btn_view a{
+ .community_container .btn, .community_container .button a{
   background-color: white;
   border: 1px solid #cccccc;
   border-radius: 5px;
@@ -570,10 +570,10 @@ p {
    .community_container .amount span, .community_container .published {
     color: grey;
    }
-   .community_container .detail .meter_view {
+   /* .community_container .detail .meter_view {
     width: 100%;
     align-self: baseline;
-   }
+   } */
    /* THIS IS FOR FULL VIEW */
  
  
@@ -627,10 +627,10 @@ p {
    color: grey;
  }
  
- .community_container .card__content .meter {
+ /* .community_container .card__content .meter {
    width: 50%;
    align-self: flex-end;
- }
+ } */
  
  .community_container .card__title {
    color: #5c5a5a;
@@ -739,19 +739,19 @@ p {
  /* THIS IS FOR CARDFULL_VIEW AND INDEX */
  /* ///////////////////////////////////////////////////////////// */
  /* this two class is same for [index, view] */
- .community_container .meter::-webkit-meter-optimum-value, .comm_container .meter::-webkit-meter-optimum-value{
-  background: none; /* Required to get rid of the default background property */
+ /* .community_container .meter::-webkit-meter-optimum-value, .comm_container .meter::-webkit-meter-optimum-value{
+  background: none; 
   background-color: green;
   border-radius: 0 0 20px 0;
   box-shadow: 0 5px 5px -5px #333 inset;
  }
  
  .community_container .meter::-moz-meter-bar, .comm_container .meter::-moz-meter-bar{
-  background: none; /* Required to get rid of the default background property */
+  background: none; 
   background-color: #079850;
   border-radius: 0 0 20px 0;
   box-shadow: 0 5px 5px -5px #333 inset;
- }
+ } */
  /* this two class is same for [index, view] */
  /* ///////////////////////////////////////////////////////////// */
  /* THIS IS FOR CARDFULL_VIEW AND INDEX */

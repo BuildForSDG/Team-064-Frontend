@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import Dashboard from '../Dashboard'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { Progress } from 'reactstrap';
 import { sendCommunityData } from '../../store/actions/community'
 import Payment from '../../components/Payment'
 import { isAuthUserType, isAuthEmail, removeAuthenticatedState } from '../../services/Auth'
@@ -40,8 +41,7 @@ class View extends Component {
     let { loading, error, errorMessage, communityData } = this.props.communityData
     let u;
     let button;
-    let auth = 'customer';
-    switch (auth){
+    switch (isAuthUserType()){
       case 'customer':
         button = (id) => { return ( <Payment info={{view:'community',id}} /> )};
         break;
@@ -85,7 +85,9 @@ class View extends Component {
                           </div>
                           <div className="detail">
                             <div className="amount"> <span>Fund:</span> ₦ {comm.amount}</div>
-                            <meter value="13200" min="0" max="50000" className="meter meter_view"></meter>
+                            <Progress color="red" value="25" className="mb-3">25%</Progress>
+
+                            {/* <meter value="13200" min="0" max="50000" className="meter meter_view"></meter> */}
                           </div>
                         </div>
                         <div className="text">
