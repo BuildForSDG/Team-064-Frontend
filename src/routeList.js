@@ -11,7 +11,7 @@ import Page404 from './views/Pages/Page404'
 const routes = [
   { path: '/dashboard', exact: true, name: 'Dashboard', component: Order },
   { path: '/community', exact: true, name: 'Community', component: Community },
-  { path: '/history', exact: true, name: 'Community', component: History },
+  { path: '/history', exact: true, name: 'History', component: History },
   { path: '/community/edit', exact: true, name: 'Edit', component: Edit },
   { path: '/community/edit/:id', exact: true, name: 'Edit', component: Edit },
   { path: '/community/:id', exact: true, name: 'View', component: View },

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import profile_image from '../../assets/img/avatar/profile_image.jpg'
 import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logo.svg'
+import sweeper_logo from '../../assets/img/brand/sweeper_logo.svg'
+import sweeper_small_logo from '../../assets/img/brand/sweeper_small_logo.svg'
 import sygnet from '../../assets/img/brand/sygnet.svg'
 
 const propTypes = {
@@ -23,9 +25,13 @@ class DefaultHeader extends Component {
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         <AppNavbarBrand
+          full={{ src: sweeper_logo, width: 89, height: 25, alt: 'CoreUI Logo' }}
+          minimized={{ src: sweeper_small_logo, width: 30, height: 30, alt: 'CoreUI Logo' }}
+        />
+        {/* <AppNavbarBrand
           full={{ src: logo, width: 89, height: 25, alt: 'CoreUI Logo' }}
           minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
-        />
+        /> */}
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
         <Nav className="d-md-down-none" navbar>
