@@ -59,11 +59,11 @@ class Login extends Component {
     let { userData } = this.props.userData
 		if (this.props !== prevProps) {
 			if (isAuthEmail() && isAuthUserType()) {
-				this.props.history.push('/dashboard')
+				this.props.history.push('/order')
 			} else {
 				if (userData.email !== '' && userData.errorMessage === '') {
 					authenticateUser(userData.email, userData.email)
-					this.props.history.push('/dashboard')
+					this.props.history.push('/order')
 				}
 			}
 		}

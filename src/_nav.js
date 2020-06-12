@@ -7,7 +7,7 @@ export const customer =  {
     },
     {
       name: 'Order',
-      url: '/dashboard',
+      url: '/order',
       icon: 'fa fa-cart-plus',
     },
     {

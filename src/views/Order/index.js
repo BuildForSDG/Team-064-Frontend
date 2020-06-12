@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 // import Dashboard from '../Dashboard'
+import { Card, CardBody, Col, Row, Input } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
 import bag from '../../assets/garbage_bag.jpg'
 import { isAuthEmail, authenticateUser, isAuthUserType } from '../../services/Auth'
 
@@ -8,7 +10,8 @@ class Order extends Component {
   render() {
     return (
       <React.Fragment>
-          <div className="order_content">
+        <Row>
+            <div className="order_content">
             <div className="bag">
               <p className="bag-head"><span className="uppercase">Your Bag</span> - 1 item</p>
             </div>
@@ -19,21 +22,20 @@ class Order extends Component {
               <div className="description">
                 <p className="muted">Order code: SS022592000</p>
                 <span className="h1">Waste Bag Pickup</span>
-                <p>type: Standard plastic bag</p>
-                <p className="description-text">Please select your waste amount according to the Standard plastic bag in the description.</p>
-                <p>bag size: 0.5m x 0.5m</p>
-                <p>bag size: 0.5m x 0.5m</p>
+                <p className="blur">Type: Standard plastic bag</p>
+                <p className="description-text">Select quantity according to plastic bag in description.</p>
+                <p className="blur">Bag size: 0.5m x 0.5m</p>
                 <span className="h1">₦825.00</span>
                 <div className="quantity-wrapper">
                   <div>
-                    <span className="h2">Quantity:</span>
-                    <span className="h2"> x1</span>
                     <span className="incremento">
-                      <button type="button" name="button" className="but">	&minus;</button>
-                      <button type="button" name="button" className="but">&#43;</button>
+                      <button type="button" name="button" className="but">&#10133;</button>
+                  <label htmlFor="quantity"></label>
+                  <Input type="text" id="quantity" maxLength="3" name="location" className="quantity"/>
+                      <button type="button" name="button" className="but">&#10134;</button>
                     </span>
                   </div>
-                  <button className="btn-remove uppercase">reset</button>
+                  <button className="btn-remove uppercase">&#128465; del</button>
                 </div>
                 <div className="quantity-wrapper">
                   <div>
@@ -57,10 +59,10 @@ class Order extends Component {
                 <h3>Total:</h3>
                 <h3>₦825.00</h3>
               </div>
-              <button className="btn-go-checkout uppercase"> <a href="#">Checkout</a>
-              </button>
+              <Link to="/order/summary"><button className="btn-go-checkout uppercase"> Checkout</button></Link>
             </div>
-          </div>
+            </div>
+        </Row>
 
       </React.Fragment>
     )

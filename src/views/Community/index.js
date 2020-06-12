@@ -54,11 +54,11 @@ class Community extends Component {
     }
 
     if (loading === 'done') {
-      u =  <Row style={{overflow:"hidden"}}>
+      u =  <Row style={{overflow:"hidden",padding:'0'}}>
               {communityData.data && communityData.data.map(comm => {
               let eachPara = comm.details.split(/[\r\n]+/);
               return (
-              <Col xs="12" sm="6" md="4" key={comm.id} style={{margin:'0 0 30px 0px'}}>
+              <Col xs="12" sm="6" md="4" key={comm.id} style={{margin:'0 0 30px 0px',padding:'0.5em'}}>
                 <Card className="card__item">
                   <Link to={'/community/' + comm.id}>
                     <img src={comm.file_name} alt="" className="card__image" />

@@ -71,8 +71,7 @@ class Payment extends React.PureComponent {
     let { card_number, expiry_date, cvs, amount} = this.state
     return (
       <React.Fragment>
-        <div className="payment_h2">Payment Information</div>
-        <form className="" action="" method="post">
+        <form className="" action="" method="post" id="card_payment_form">
           <div className="payment_form">
             <div className="cardNumber">
               <label htmlFor="card_number">Card Number</label><br />
@@ -81,7 +80,7 @@ class Payment extends React.PureComponent {
             </div>
             <div className="inlineElement">
               <div className="exp">
-                <label htmlFor="expiry_date">Expiration Date</label><br />
+                <label htmlFor="expiry_date">Expire</label><br />
                 <span className="icon"><img src={date} alt="" /> </span>
                 <Input id="expiry_date" className="expiry" type="text" name="" value={expiry_date} pattern="[\d/]*" onChange={this.handleChange} maxLength="5" placeholder=" 00/00" required />
               </div>
@@ -96,9 +95,6 @@ class Payment extends React.PureComponent {
               <span className="icon"><img src={coin} alt="" /> </span>
               <Input id="amount" className="input" type="text" name="" value={amount} pattern="[\d,]*" onChange={this.handleChange} maxLength="20" placeholder="min. ₦200" required />
             </div>
-          </div>
-          <div className="btn_view">
-            <button type="submit" name="button" className="btn_donate btn delete">Donate</button>
           </div>
         </form>
       </React.Fragment>

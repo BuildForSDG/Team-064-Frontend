@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 // import Dashboard from '../Dashboard'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { Progress } from 'reactstrap';
+import { Row, Progress } from 'reactstrap';
 import { sendCommunityData } from '../../store/actions/community'
 import Payment from '../../components/Payment'
 import { isAuthUserType, isAuthEmail, removeAuthenticatedState } from '../../services/Auth'
 import { Link } from 'react-router-dom'
 import Page404 from '../../views/Pages/Page404'
+
 
 class View extends Component {
   constructor(props) {
@@ -43,7 +44,11 @@ class View extends Component {
     let button;
     switch (isAuthUserType()){
       case 'customer':
-        button = (id) => { return ( <Payment info={{view:'community',id}} /> )};
+        button = (id) => { return ( <span className="container"><div className="payment_h2">Card Payment</div>
+         <Payment info={{view:'community',id}} />  <div className="btn_view">
+            <button type="submit" name="button" form="card_payment_form" className="btn_donate btn delete">Donate</button>
+          </div>
+         </span> )};
         break;
       case 'admin':
         button = (id) => { return(<div className="btn_view">
@@ -66,35 +71,35 @@ class View extends Component {
                     let eachPara = comm.details.split(/[\r\n]+/);
                     let allDetails = eachPara && eachPara.map( (eachOne, index) => <p key={index}> {eachOne} </p>)
                     return (
-                      <div className="community_container containerFull" key={comm.id}>
-                        <div className="image">
-                          <img src={comm.file_name} alt="" />
-                        </div>
-                        <div className="title_big">
-                          {comm.location}
-                        </div>
-                        <hr className="hr" />
-                        <div className="details">
-                          <div className="detail">
-                            <div className="published">
-                              Date Pubished
+                      <Row key={comm.id}>
+                        <div className="community_container containerFull">
+                          <div className="image">
+                            <img src={comm.file_name} alt="" />
+                          </div>
+                          <div className="title_big">
+                            {comm.location}
+                          </div>
+                          <hr className="hr" />
+                          <div className="details">
+                            <div className="detail">
+                              <div className="published">
+                                Date Pubished
+                              </div>
+                              <div className="date">
+                                24, July 2020
+                              </div>
                             </div>
-                            <div className="date">
-                              24, July 2020
+                            <div className="detail">
+                              <div className="amount"> <span>Fund:</span> ₦ {comm.amount}</div>
+                              <Progress color="red" value="25" className="mb-3">25%</Progress>
                             </div>
                           </div>
-                          <div className="detail">
-                            <div className="amount"> <span>Fund:</span> ₦ {comm.amount}</div>
-                            <Progress color="red" value="25" className="mb-3">25%</Progress>
-
-                            {/* <meter value="13200" min="0" max="50000" className="meter meter_view"></meter> */}
+                          <div className="text">
+                            {allDetails}
                           </div>
+                          {button(comm.id)}
                         </div>
-                        <div className="text">
-                          {allDetails}
-                        </div>
-                        {button(comm.id)}
-                      </div>
+                      </Row>
                     )
                   })}
                 </React.Fragment>

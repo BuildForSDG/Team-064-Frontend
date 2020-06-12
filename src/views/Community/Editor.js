@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { sendCommunityData } from '../../store/actions/community'
 import {
-  Input
+  Input, Col, Row
 } from 'reactstrap';
 
 class Edit extends Component {
@@ -158,32 +158,30 @@ class Edit extends Component {
     error === 'true' && errorMessage !== '' ? (this.notif = errorMessage) : (this.notif = this.notif)
     return (
       <React.Fragment>
-          <form encType="multipart/form-data" method="post" onSubmit={this.handleSubmit}>
-            <div className="community_container containerFull">
-              <label htmlFor="file" className="file_label"> <img src={imagePreviewUrl} alt="" />
-                <div className="bar_upload">
-                  <span className="upload_icon straight"></span>
-                  <span className="upload_icon slanting"></span>
-                  <span className="upload_icon round"></span>
+        <Row>
+          <form encType="multipart/form-data" method="post" onSubmit={this.handleSubmit} className="community_container containerFull">
+                <label htmlFor="file" className="file_label"> <img src={imagePreviewUrl} alt="" />
+                  <div className="bar_upload">
+                    <span className="upload_icon straight"></span>
+                    <span className="upload_icon slanting"></span>
+                    <span className="upload_icon round"></span>
+                  </div>
+                </label>
+                <input type="file" id="file" name="file" className="file" accept="image/*" onChange={this.handleFileChange} ref={this.fileRef} />
+                <div className="title">
+                  <label htmlFor="location"></label>
+                  <Input type="text" id="location" name="location" className="title_input" value={location} onChange={this.handleChange} placeholder="Enter location here" required />
                 </div>
-              </label>
-              <input type="file" id="file" name="file" className="file" accept="image/*" onChange={this.handleFileChange} ref={this.fileRef} />
-              <div className="title">
-                <label htmlFor="location"></label>
-                <Input type="text" id="location" name="location" className="title_input" value={location} onChange={this.handleChange} placeholder="Enter location here" required />
-              </div>
-              <hr className="hr" />
-              <div className="amount_edit_cover">
-                <label htmlFor="amount" className="amount_edit_label">Fund:</label>
-                <span>&#8358;</span><Input type="text" name="amount" id="amount" value={amount} className="amount_edit" onChange={this.handleChange} placeholder="Amount" required />
-              </div>
-
-              <Input type="textarea" name="name" id="details" name="details" className="detail_textarea" value={details} onChange={this.handleChange} placeholder="Details here.     Press Enter key **TWICE(2)** to goto a new  paragraph" required/>
-              <button type="submit" name="button" className="btn_donate btn edit"> {u} </button>
-            </div>
-          </form>
+                <hr className="hr" />
+                <div className="amount_edit_cover">
+                  <label htmlFor="amount" className="amount_edit_label">Fund:</label>
+                  <span>&#8358;</span><Input type="text" name="amount" id="amount" value={amount} className="amount_edit" onChange={this.handleChange} placeholder="Amount" required />
+                </div>
+                <Input type="textarea" name="name" id="details" name="details" className="detail_textarea" value={details} onChange={this.handleChange} placeholder="Details here.     Press Enter key **TWICE(2)** to goto a new  paragraph" required/>
+                <button type="submit" name="button" className="btn_donate btn edit"> {u} </button>
+            </form>
           <div className="notif" ref={this.clsBtn}>Please type something<span onClick={this.close}>&#x274E;</span> </div>
-
+        </Row>
       </React.Fragment>
     )
   }
