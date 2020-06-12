@@ -19,7 +19,7 @@ class CustomerMap extends React.PureComponent {
 
   componentDidMount() {
     let googleScript = document.createElement('script');
-    googleScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHdFymwu91lTBTQBDgltrFaXPD6TxY2g&libraries=places"
+    googleScript.src = "https://maps.googleapis.com/maps/api/js?key=xxxAIzaSyBKHdFymwu91lTBTQBDgltrFaXPD6TxY2g&libraries=places"
     googleScript.async = true
     window.document.body.appendChild(googleScript)
     googleScript.addEventListener('load', this.initAutocomplete)
@@ -198,12 +198,14 @@ class CustomerMap extends React.PureComponent {
 
   render() {
     return (
-      <React.Fragment className="container_map">
+      <Row>
+      <div className="container_map">
         <div id="map" ref={this.googleMapRef}></div>
         <FormGroup>
           <Input id="pac-input" className="controls" type="text" placeholder="Search Box" />
         </FormGroup>
-      </React.Fragment>
+      </div>
+      </Row>
     )
   }
 }
