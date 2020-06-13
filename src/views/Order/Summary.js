@@ -79,32 +79,6 @@ class Summary extends Component {
                        className={'modal-primary ' + this.props.className}>
                   <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
                   <ModalBody>
-                  <FormGroup>
-              <Label htmlFor="company">Company</Label>
-              <Input type="text" id="company" placeholder="Enter your company name" />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="vat">VAT</Label>
-              <Input type="text" id="vat" placeholder="DE1234567890" />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="street">Street</Label>
-              <Input type="text" id="street" placeholder="Enter street name" />
-            </FormGroup>
-            <FormGroup row className="my-0">
-              <Col xs="8">
-                <FormGroup>
-                  <Label htmlFor="city">City</Label>
-                  <Input type="text" id="city" placeholder="Enter your city" />
-                </FormGroup>
-              </Col>
-              <Col xs="4">
-                <FormGroup>
-                  <Label htmlFor="postal-code">Postal Code</Label>
-                  <Input type="text" id="postal-code" placeholder="Postal Code" />
-                </FormGroup>
-              </Col>
-            </FormGroup>
             <FormGroup>
               <Label htmlFor="country">Country</Label>
               <Input type="text" id="country" placeholder="Country name" />
@@ -115,48 +89,7 @@ class Summary extends Component {
                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                   </ModalFooter>
                 </Modal> */}
-                <Modal isOpen={this.state.modal} toggle={this.toggle}
-                  className={'modal-primary ' + this.props.className}>
-                  <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                  <ModalBody>
-                    <CustomerMap/>
-                    {/* <FormGroup>
-                      <Label htmlFor="company">Company</Label>
-                      <Input type="text" id="company" placeholder="Enter your company name" />
-                    </FormGroup> */}
-                    {/* <FormGroup>
-              <Label htmlFor="vat">VAT</Label>
-              <Input type="text" id="vat" placeholder="DE1234567890" />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="street">Street</Label>
-              <Input type="text" id="street" placeholder="Enter street name" />
-            </FormGroup>
-            <FormGroup row className="my-0">
-              <Col xs="8">
-                <FormGroup>
-                  <Label htmlFor="city">City</Label>
-                  <Input type="text" id="city" placeholder="Enter your city" />
-                </FormGroup>
-              </Col>
-              <Col xs="4">
-                <FormGroup>
-                  <Label htmlFor="postal-code">Postal Code</Label>
-                  <Input type="text" id="postal-code" placeholder="Postal Code" />
-                </FormGroup>
-              </Col>
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="country">Country</Label>
-              <Input type="text" id="country" placeholder="Country name" />
-            </FormGroup> */}
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                  </ModalFooter>
-                </Modal>
-                <Button onClick={this.toggle} className="mr-1 change_address"><span className="uppercase">change address</span></Button>
+                <Link to="/account/address"><Button className="mr-1 change_address"><span className="uppercase">change address</span></Button></Link>
               </div>
             </div>
             <span className="hr"></span>
