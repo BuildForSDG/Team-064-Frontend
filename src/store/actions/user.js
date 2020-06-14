@@ -1,11 +1,42 @@
 /* eslint-disable linebreak-style */
-import { SET_USER } from './actionTypes';
+import axios from 'axios'
+import { SET_USER, FETCH_USER_DATA_REQUEST, FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_FAILURE } from './actionTypes';
 import { userUiStartLoading, userUiStopLoading } from './ui';
 
 export const setUser = (user) => ({
   type: SET_USER,
   user
 });
+
+export const fetchUserDataRequest = () => ({ type: FETCH_USER_DATA_REQUEST})
+export const fetchUserDataSuccess = (userData) => ({ type: FETCH_USER_DATA_SUCCESS, payload: userData})
+export const fetchUserDataFailure = (error) => ({ type: FETCH_USER_DATA_FAILURE, payload: error})
+// export const fetchUserOnline = (error) => ({type: FETCH_USER_ERROR, payload: error});
+
+// 'https://johnerry.000webhostapp.com/placeholder.php?u='
+// 'https://my-json-server.typicode.com/johnerry/json_place_holder/'
+export const fetchUserData = (name) => async (dispatch) => {
+  try {
+    dispatch(fetchUserDataRequest())
+    axios.get('https://johnerry.000webhostapp.com/placeholder.php?u='+name)
+    .then( response => {
+      const userData = response.data
+      // console.log(userData)
+      dispatch(fetchUserDataSuccess(userData))
+    })
+    .catch(error => {
+      const errorMessage = error.message
+      // console.log(errorMessage)
+      dispatch(fetchUserDataFailure(errorMessage))
+    })
+
+  } catch (error) {
+    // dispatch(fetchUserOnline(error))
+  }
+
+}
+
+
 
 export const getUser = () => async (dispatch) => {
   try {

@@ -1,17 +1,33 @@
 /* eslint-disable linebreak-style */
-import { SET_USER } from '../actions/actionTypes';
+import { FETCH_USER_DATA_REQUEST, FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_FAILURE } from '../actions/actionTypes';
 
 const initialState = {
-  user: {}
+  loading:'false',
+  userData: [],
+  error: 'false',
+  errorMessage: ''
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER:
+    case FETCH_USER_DATA_REQUEST:
       return {
         ...state,
-        user: { ...action.user }
-      };
+        loading: 'true'
+      }
+    case FETCH_USER_DATA_SUCCESS:
+      return {
+        ...state,
+        userData: action.payload,
+        loading: 'done'
+      }
+    case FETCH_USER_DATA_FAILURE:
+      return {
+        loading: 'done',
+        userData: [],
+        error: 'true',
+        errorMessage: action.payload
+      }
     default:
       return state;
   }

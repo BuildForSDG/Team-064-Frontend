@@ -6,12 +6,14 @@ import {
   createStore, applyMiddleware, combineReducers, compose
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import user from './reducers/user';
+import userData from './reducers/user';
+import communityData from './reducers/community';
 import ui from './reducers/ui';
 
 const appReducer = combineReducers({
-  user,
-  ui // Import your reducers in this object
+  userData: userData,
+  communityData: communityData,
+  ui:ui
 });
 
 const rootReducer = (state, action) => {
@@ -28,6 +30,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 }
 
 const middleware = composeEnhancers(applyMiddleware(thunkMiddleware));
-const store = createStore(rootReducer, {}, middleware);
+const store = createStore(rootReducer, middleware);
 
 export default store;
