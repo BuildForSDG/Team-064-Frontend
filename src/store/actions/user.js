@@ -15,13 +15,25 @@ export const fetchUserDataFailure = (error) => ({ type: FETCH_USER_DATA_FAILURE,
 
 // 'https://johnerry.000webhostapp.com/placeholder.php?u='
 // 'https://my-json-server.typicode.com/johnerry/json_place_holder/'
-export const fetchUserData = (name) => async (dispatch) => {
+export const fetchUserData = (data, type) => async (dispatch) => {
+  let hm;
+  type === 'login' ? ( hm = axios.post('https://broomy64.herokuapp.com/customersessions', data, {
+    headers: {
+        'Content-Type': 'application/json',
+    }
+  })) :
+   ( hm = axios.post('https://broomy64.herokuapp.com/customers', data, {
+    headers: {
+        'Content-Type': 'application/json',
+    }
+  }));
+
   try {
     dispatch(fetchUserDataRequest())
-    axios.get('https://johnerry.000webhostapp.com/placeholder.php?u='+name)
+    hm
     .then( response => {
       const userData = response.data
-      // console.log(userData)
+      // console.log(type)
       dispatch(fetchUserDataSuccess(userData))
     })
     .catch(error => {

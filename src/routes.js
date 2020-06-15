@@ -7,6 +7,7 @@ import { Router, Route as DefaultRoute, Switch, Redirect} from 'react-router-dom
 import history from './history';
 import Login from './views/Pages/Login'
 import Register from './views/Pages/Register'
+import RegMessage from './views/Pages/Message/RegMessage'
 import DefaultLayout from './containers/DefaultLayout';
 import { isAuthEmail, isAuthUserType } from './services/Auth'
 
@@ -48,6 +49,7 @@ export default () => (
   <Router history={history}>
     <Switch>
       <Route ensureNonAuth exact path="/login" component={Login} />
+      <Route ensureNonAuth exact path="/message" component={RegMessage} />
       <Route ensureNonAuth exact path="/register" component={Register} />
       <PrivateRoute path="/" name="Home" component={DefaultLayout} />
     </Switch>

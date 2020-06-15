@@ -8,10 +8,6 @@ import { isAuthEmail, authenticateUser, isAuthUserType } from '../../../services
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
 
-
-
-
-
 class Login extends Component {
   constructor(props) {
 		super(props)
@@ -40,48 +36,51 @@ class Login extends Component {
 
 
 	handleSubmit(e) {
-		e.preventDefault()
+    e.preventDefault()
+    let { email_signIn, password_signIn } = this.state
+    let data = JSON.stringify({"username":email_signIn, "password": password_signIn })
+    console.log(data)
     let { fetchData } = this.props
-		fetchData(this.state.email_signIn)
-		this.setState({
-			email_signIn: '',
-			password_signIn: '',
-			keep_signIn: false,
-			username_signUp: '',
-			password_signUp: '',
-			password_repeat: '',
-			email_signUp: '',
-			loading: true
-		})
+		fetchData( data , 'login')
+		// this.setState({
+		// 	email_signIn: '',
+		// 	password_signIn: '',
+		// 	keep_signIn: false,
+		// 	username_signUp: '',
+		// 	password_signUp: '',
+		// 	password_repeat: '',
+		// 	email_signUp: '',
+		// 	loading: true
+		// })
 	}
 
 	componentDidUpdate(prevProps) {
     let { userData } = this.props.userData
 		if (this.props !== prevProps) {
+      console.log(this.props.userData)
 			if (isAuthEmail() && isAuthUserType()) {
 				this.props.history.push('/order')
 			} else {
-				if (userData.email !== '' && userData.errorMessage === '') {
-					authenticateUser(userData.email, userData.email)
+				if (userData.status === 'successful' && userData.errorcount === '0') {
+					authenticateUser(userData.email, 'customer')
 					this.props.history.push('/order')
 				}
 			}
 		}
   }
   
-
   render() {
     let u = '';
 		let f = '';
     let { email_signIn, password_signIn } = this.state
     let { loading, error, errorMessage, userData } = this.props.userData
     error === 'true' && errorMessage !== ''  ? (f = errorMessage) :
-    ( userData.errorMessage !== '' ? (f = userData.errorMessage) : (f = '')    )
+    ( userData.errorcount !== '0' ? (f = userData.error) : (f = '') )
 		loading === 'done' ? (u = 'Login') :
       (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Login'))
       
     return (
-      <div className="app flex-row align-items-center">
+      <div className="app flex-row align-items-center background_image">
         <Container>
           <Row className="justify-content-center">
             <Col md="8">
@@ -99,7 +98,7 @@ class Login extends Component {
                             <i className="fa fa-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Username" autoComplete="username" required/>
+                        <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Email" autoComplete="email" required/>
                       </InputGroup>
 
                       <span className="error">{f}</span>
@@ -109,7 +108,7 @@ class Login extends Component {
                             <i className="fa fa-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="current-password" required/>
+                        <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="password" required/>
                       </InputGroup>
                       <Row>
                         <Col xs="6">
@@ -150,7 +149,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchData: (name) => dispatch(fetchUserData(name))
+		fetchData: (name, type) => dispatch(fetchUserData(name, type))
 	}
 }
 

@@ -5,7 +5,12 @@
 
 }
 
+.background_image {
+  background-image: url('./assets/img/brand/sweeper_small_logo.svg');
+}
+
 .error {
+  display: block;
   font-weight: normal;
   font-size: 0.8em;
   color: rgb(187, 25, 25);
