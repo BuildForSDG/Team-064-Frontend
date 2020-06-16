@@ -1,44 +1,44 @@
-export const customer =  {
+export const customer = {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user',
+      icon: 'fa fa-user'
     },
     {
       name: 'Order',
       url: '/order',
-      icon: 'fa fa-cart-plus',
+      icon: 'fa fa-cart-plus'
     },
     {
       name: 'Community',
       url: '/community',
-      icon: 'fa fa-globe',
+      icon: 'fa fa-globe'
     },
     {
       name: 'History',
       url: '/history',
-      icon: 'fa fa-history',
+      icon: 'fa fa-history'
     },
     {
       name: 'Support',
       url: '/support',
-      icon: 'fa fa-question-circle',
+      icon: 'fa fa-question-circle'
     },
     {
       name: 'About',
       url: '/about',
-      icon: 'fa fa-info-circle',
-    },
-  ],
+      icon: 'fa fa-info-circle'
+    }
+  ]
 };
 
-export const agent =  {
+export const agent = {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user',
+      icon: 'fa fa-user'
     },
     {
       name: 'Pickups',
@@ -48,34 +48,34 @@ export const agent =  {
         {
           name: 'New',
           url: '/pickups/new',
-          icon: 'fa fa-plus-circle',
+          icon: 'fa fa-plus-circle'
         },
         {
           name: 'Pending',
           url: '/pickups/pending',
-          icon: 'fa fa-pause-circle-o',
-        },
-      ],
+          icon: 'fa fa-pause-circle-o'
+        }
+      ]
     },
     {
       name: 'History',
       url: '/history',
-      icon: 'fa fa-history',
+      icon: 'fa fa-history'
     },
     {
       name: 'Support',
       url: '/support',
-      icon: 'fa fa-question-circle',
-    },
-  ],
+      icon: 'fa fa-question-circle'
+    }
+  ]
 };
 
-export const admin =  {
+export const admin = {
   items: [
     {
       name: 'My Account',
       url: '/account',
-      icon: 'fa fa-user',
+      icon: 'fa fa-user'
     },
     {
       name: 'Agents',
@@ -85,14 +85,14 @@ export const admin =  {
         {
           name: 'Add',
           url: '/agent/edit',
-          icon: 'fa fa-plus-circle',
+          icon: 'fa fa-plus-circle'
         },
         {
           name: 'Review',
           url: '/agent/review',
-          icon: 'fa fa-eye',
-        },
-      ],
+          icon: 'fa fa-eye'
+        }
+      ]
     },
     {
       name: 'Communty',
@@ -102,21 +102,21 @@ export const admin =  {
         {
           name: 'Add',
           url: '/community/edit',
-          icon: 'fa fa-plus-circle',
+          icon: 'fa fa-plus-circle'
         },
         {
           name: 'Review',
           url: '/community',
-          icon: 'fa fa-eye',
-        },
-      ],
+          icon: 'fa fa-eye'
+        }
+      ]
     },
     {
       name: 'Customer',
       url: '/customer',
-      icon: 'fa fa-male',
-    },
-  ],
+      icon: 'fa fa-male'
+    }
+  ]
 };
 
 // export default {

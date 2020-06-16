@@ -3,13 +3,13 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Router, Route as DefaultRoute, Switch, Redirect} from 'react-router-dom';
+import { Router, Route as DefaultRoute, Switch, Redirect } from 'react-router-dom';
 import history from './history';
-import Login from './views/Pages/Login'
-import Register from './views/Pages/Register'
-import RegMessage from './views/Pages/Message/RegMessage'
+import Login from './views/Pages/Login';
+import Register from './views/Pages/Register';
+import RegMessage from './views/Pages/Message/RegMessage';
 import DefaultLayout from './containers/DefaultLayout';
-import { isAuthEmail, isAuthUserType } from './services/Auth'
+import { isAuthEmail, isAuthUserType } from './services/Auth';
 
 // @desc  A function to check if user is authenticated. Check if token exists
 // @ex    const isAuth = isAuthenticated()
@@ -24,14 +24,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <DefaultRoute
     {...rest}
     render={(props) => (isAuthEmail() && isAuthUserType() ? (
-        <Component {...props} />
+      <Component {...props} />
     ) : (
         <Redirect
           to={{
             pathname: '/login'
           }}
         />
-    ))
+      ))
     }
   />
 );

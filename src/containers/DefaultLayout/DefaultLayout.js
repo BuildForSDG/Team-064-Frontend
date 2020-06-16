@@ -2,38 +2,33 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
-import { removeAuthenticatedState, isAuthUserType } from '../../services/Auth'
+import { AppFooter, AppHeader, AppSidebar, AppSidebarMinimizer, AppBreadcrumb2 as AppBreadcrumb, AppSidebarNav2 as AppSidebarNav } from '@coreui/react';
+import { removeAuthenticatedState, isAuthUserType } from '../../services/Auth';
 
-import {
-  AppFooter,
-  AppHeader,
-  AppSidebar,
-  AppSidebarMinimizer,
-  AppBreadcrumb2 as AppBreadcrumb,
-  AppSidebarNav2 as AppSidebarNav,
-} from '@coreui/react';
 // sidebar nav config
-import { customer, agent, admin} from '../../_nav';
+import { customer, agent, admin } from '../../_nav';
 // import navigation from '../../_nav';
 // routes config
 import routes from '../../routeList';
-import DefaultFooter from './DefaultFooter'
-import DefaultHeader from './DefaultHeader'
+import DefaultFooter from './DefaultFooter';
+import DefaultHeader from './DefaultHeader';
 
 class DefaultLayout extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-       
-    }
-    this.signOut = this.signOut.bind(this)
+
+    };
+    this.signOut = this.signOut.bind(this);
   }
 
-
   signOut(e) {
-    e.preventDefault()
-    removeAuthenticatedState()
+    this.state = {
+
+    };
+    e.preventDefault();
+    removeAuthenticatedState();
     window.location.reload(true);
     // this.props.history.push('/login')
   }
@@ -44,7 +39,7 @@ class DefaultLayout extends Component {
     };
 
     let nav;
-    switch (isAuthUserType()){
+    switch (isAuthUserType()) {
       case 'customer':
         nav = customer;
         break;
@@ -62,37 +57,37 @@ class DefaultLayout extends Component {
     return (
       <div className="app">
         <AppHeader fixed>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+          <DefaultHeader onLogout={e => this.signOut(e)} />
         </AppHeader>
         <div className="app-body">
           <AppSidebar fixed display="lg">
-            <AppSidebarNav navConfig={nav} {...this.props} router={router}/>
+            <AppSidebarNav navConfig={nav} {...this.props} router={router} />
             <AppSidebarMinimizer />
           </AppSidebar>
           <main className="main" style={mystyle}>
-            <AppBreadcrumb appRoutes={routes} router={router}/>
-            
+            <AppBreadcrumb appRoutes={routes} router={router} />
+
             <Container fluid >
-                <Switch>
-                  {routes.map((route, idx) => {
-                    return route.component ? (
-                      <Route
-                        key={idx}
-                        path={route.path}
-                        exact={route.exact}
-                        name={route.name}
-                        render={props => (
-                          <route.component {...props} />
-                        )} />
-                    ) : (null);
-                  })}
-                  {/* <Redirect from="/" to="/dashboard" /> */}
-                </Switch>
+              <Switch>
+                {routes.map((route, idx) => {
+                  return route.component ? (
+                    <Route
+                      key={idx}
+                      path={route.path}
+                      exact={route.exact}
+                      name={route.name}
+                      render={props => (
+                        <route.component {...props} />
+                      )} />
+                  ) : (null);
+                })}
+                {/* <Redirect from="/" to="/dashboard" /> */}
+              </Switch>
             </Container>
           </main>
         </div>
         <AppFooter>
-            <DefaultFooter />
+          <DefaultFooter />
         </AppFooter>
       </div>
     );

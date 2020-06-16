@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
-import { connect } from 'react-redux'
-import { compose } from 'redux'
+import {
+  Button, Card, CardBody, Col, Container, Form, Input, InputGroup
+  , InputGroupAddon, InputGroupText, Row, Nav, NavItem, NavLink, TabContent, TabPane
+} from 'reactstrap';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { fetchUserData } from '../../../store/actions/user'
+import { fetchUserData } from '../../../store/actions/user';
+
 class Register extends Component {
   constructor(props) {
     super(props)
@@ -22,9 +25,9 @@ class Register extends Component {
       password: '',
       loading: false,
       activeTab: ["1"]
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggle(tab) {
@@ -37,17 +40,17 @@ class Register extends Component {
     let optInp;
     let u = '';
     let f = '';
-    let { firstname, phonenumber, email, gender, country, lastname, dateofbirth, company, address } = this.state
+    let { firstname, phonenumber, email, gender, country, lastname, dateofbirth, company, address } = this.state;
     // console.log(this.state)
-    let { loading, error, errorMessage, userData } = this.props.userData
-    error === 'true' && errorMessage !== '' ? (f = errorMessage) :
-      (userData.errorcount !== '0' ? (f = userData.status) : (f = ''))
+    let { loading, error, errorMessage, userData } = this.props.userData;
+    error === 'true' && errorMessage !== '' ? (f = errorMessage)
+      : (userData.errorcount !== '0' ? (f = userData.status) : (f = ''));
     loading === 'done' ? (u = 'Create Account') :
-      (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Create Account'))
+      (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Create Account'));
 
     if (formId === 'customer') {
       optInp = <>
-              <InputGroup className="mb-3">
+        <InputGroup className="mb-3">
           <InputGroupAddon addonType="prepend">
             <InputGroupText><span role="img" aria-label="name">&#9892;</span></InputGroupText>
           </InputGroupAddon>
@@ -64,14 +67,14 @@ class Register extends Component {
           </InputGroupAddon>
           <Input type="date" id="dateofbirth" value={dateofbirth} onChange={this.handleChange} max="2030-12-30" min="1940-01-01" placeholder="yyyy-mm-dd" required />
         </InputGroup>
-        <span style={{display:'block',marginBottom:'2.6em'}} ></span>
-      </>
-    }else {
+        <span style={{ display: 'block', marginBottom: '2.6em' }} ></span>
+      </>;
+    } else {
       optInp = <>
         <InputGroup className="mb-3">
           <InputGroupAddon addonType="prepend">
             <InputGroupText>
-            <span role="img" aria-label="name">&#127963;</span>
+              <span role="img" aria-label="name">&#127963;</span>
             </InputGroupText>
           </InputGroupAddon>
           <Input type="text" id="company" value={company} onChange={this.handleChange} placeholder="Company Name" autoComplete="company" required />
@@ -79,12 +82,12 @@ class Register extends Component {
         <InputGroup className="mb-3">
           <InputGroupAddon addonType="prepend">
             <InputGroupText>
-            <span role="img" aria-label="name">&#9942;</span>
+              <span role="img" aria-label="name">&#9942;</span>
             </InputGroupText>
           </InputGroupAddon>
           <Input type="textarea" id="address" value={address} onChange={this.handleChange} placeholder="Company Address" autoComplete="address" required />
         </InputGroup>
-      </>
+      </>;
     }
 
     return (
@@ -108,7 +111,7 @@ class Register extends Component {
         <InputGroup className="mb-3">
           <InputGroupAddon addonType="prepend">
             <InputGroupText>
-            <span role="img" aria-label="name">&#9742;</span>
+              <span role="img" aria-label="name">&#9742;</span>
             </InputGroupText>
           </InputGroupAddon>
           <Input type="text" id="phonenumber" value={phonenumber} onChange={this.handleChange} placeholder="Phone Number" autoComplete="phone number" required />
@@ -142,40 +145,40 @@ class Register extends Component {
       {
         [e.target.id]: e.target.value
       }
-    )
+    );
   }
 
 
   handleSubmit(e) {
-    e.preventDefault()
-    let { firstname, lastname, phonenumber, email, gender, country, dateofbirth } = this.state
-    let json = JSON.stringify({firstname, lastname, phonenumber, email, gender, country, dateofbirth})
-    let { fetchData } = this.props
-    fetchData(json, 'register')
+    e.preventDefault();
+    let { firstname, lastname, phonenumber, email, gender, country, dateofbirth } = this.state;
+    const json = JSON.stringify({ firstname, lastname, phonenumber, email, gender, country, dateofbirth });
+    let { fetchData } = this.props;
+    fetchData(json, 'register');
     this.setState({
-    	loading: true
-    })
+      loading: true
+    });
   }
 
   componentDidUpdate(prevProps) {
-    let { userData } = this.props.userData
+    let { userData } = this.props.userData;
     if (this.props !== prevProps) {
-      if (userData.length !== 0){
+      if (userData.length !== 0) {
         if (userData.errorcount === '0' && this.state.loading === true) {
-          this.props.history.push('/message', {data: "success"})
-        }
-      }
-    }
+          this.props.history.push('/message', { data: "success" })
+        };
+      };
+    };
   }
 
   render() {
-    let customerTab , agentTab;
+    let customerTab, agentTab;
     if (this.state.activeTab[0] === '1') {
-      customerTab = this.form('customer')
-      agentTab = ''
-    }else {
-      customerTab = ''
-      agentTab = this.form('agent')
+      customerTab = this.form('customer');
+      agentTab = '';
+    } else {
+      customerTab = '';
+      agentTab = this.form('agent');
     }
 
     return (
@@ -198,7 +201,7 @@ class Register extends Component {
                 </NavLink>
                     </NavItem>
                     <NavItem style={{ width: '50%', textAlign: 'center' }} title="disabled">
-                      <NavLink disabled 
+                      <NavLink disabled
                         active={this.state.activeTab[0] === '2'}
                         onClick={() => { this.toggle('2'); }}
                       >
@@ -229,6 +232,7 @@ const mapStateToProps = (state) => {
     userData: state.userData
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: (name, type) => dispatch(fetchUserData(name, type))
@@ -238,4 +242,4 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(Register)
+)(Register);

@@ -9,10 +9,8 @@ const defaultProps = {};
 
 class DefaultFooter extends Component {
   render() {
-
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
-
     return (
       <React.Fragment>
         <span><a href="https://johnerry.000webhostapp.com">Broomy</a> &copy; 2020 Clean-Initiative.</span>

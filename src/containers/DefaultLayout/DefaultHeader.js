@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
-import profile_image from '../../assets/img/avatar/profile_image.jpg'
+import profileImage from '../../assets/img/avatar/profile_image.jpg';
 import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 // import logo from '../../assets/img/brand/logo.svg'
-import sweeper_logo from '../../assets/img/brand/sweeper_logo.svg'
-import sweeper_small_logo from '../../assets/img/brand/sweeper_small_logo.svg'
+import sweeperLogo from '../../assets/img/brand/sweeper_logo.svg';
+import sweeperLogoSmall from '../../assets/img/brand/sweeper_small_logo.svg';
 // import sygnet from '../../assets/img/brand/sygnet.svg'
 
 const propTypes = {
@@ -16,20 +16,18 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
-  render() {
 
+  render() {
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
-
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         <AppNavbarBrand
-          full={{ src: sweeper_logo, width: 120, height: 30, alt: 'Broomy Logo' }}
-          minimized={{ src: sweeper_small_logo, width: 30, height: 30, alt: 'Broomy Logo' }}
+          full={{ src: sweeperLogo, width: 120, height: 30, alt: 'Broomy Logo' }}
+          minimized={{ src: sweeperLogoSmall, width: 30, height: 30, alt: 'Broomy Logo' }}
         />
         <AppSidebarToggler className="d-md-down-none" display="lg" />
-
         <Nav className="d-md-down-none" navbar>
           <NavItem className="px-3">
             <NavLink to="/dashboard" className="nav-link" >Dashboard</NavLink>
@@ -41,7 +39,7 @@ class DefaultHeader extends Component {
         <Nav className="ml-auto" navbar>
           <UncontrolledDropdown nav direction="down">
             <DropdownToggle nav>
-              <img src={profile_image} className="img-avatar" alt="user" />
+              <img src={profileImage} className="img-avatar" alt="user" />
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>

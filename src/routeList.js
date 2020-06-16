@@ -1,15 +1,15 @@
 // import React from 'react';
-import Order from './views/Order'
-import CustomerMap from './views/Map/CustomerMap'
+import Order from './views/Order';
+import CustomerMap from './views/Map/CustomerMap';
 // import AgentMAp from './views/Map/AgentMAp'
-import Summary from './views/Order/Summary'
-import Address from './views/Order/Address'
-import Community from './views/Community'
-import History from './views/History'
-import Account from './views/Pages/Accout'
-import Edit from './views/Community/Editor'
-import View from './views/Community/View'
-import Page404 from './views/Pages/Page404'
+import Summary from './views/Order/Summary';
+import Address from './views/Order/Address';
+import Community from './views/Community';
+import History from './views/History';
+import Account from './views/Pages/Accout';
+import Edit from './views/Community/Editor';
+import View from './views/Community/View';
+import Page404 from './views/Pages/Page404';
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [

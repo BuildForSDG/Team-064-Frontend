@@ -2,7 +2,7 @@
 import { FETCH_USER_DATA_REQUEST, FETCH_USER_DATA_SUCCESS, FETCH_USER_DATA_FAILURE } from '../actions/actionTypes';
 
 const initialState = {
-  loading:'false',
+  loading: 'false',
   userData: [],
   error: 'false',
   errorMessage: ''

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import Dashboard from '../Dashboard'
 // import { isAuthEmail, authenticateUser, isAuthUserType } from '../../../services/Auth'
 import { Link } from 'react-router-dom';
@@ -21,7 +21,7 @@ class Account extends Component {
             </div>
             <div className="summary_inline">
               <div className="account_icon" >
-              <span role="img" aria-label="name">&#127915;</span>
+                <span role="img" aria-label="name">&#127915;</span>
               </div>
               <div className="account_detail">
                 <span className="h2">Name</span><br /><br />
@@ -31,7 +31,7 @@ class Account extends Component {
             <span className="hr"></span>
             <div className="summary_inline">
               <div className="account_icon">
-              <span role="img" aria-label="name">&#9873;</span>
+                <span role="img" aria-label="name">&#9873;</span>
               </div>
               <div className="account_detail">
                 <span className="h2">Address</span>
@@ -44,7 +44,7 @@ class Account extends Component {
             <span className="hr"></span>
             <div className="summary_inline">
               <div className="account_icon">
-              <span role="img" aria-label="name">&#9993;</span>
+                <span role="img" aria-label="name">&#9993;</span>
               </div>
               <div className="account_detail">
                 <span className="h2">Email</span>
@@ -56,18 +56,18 @@ class Account extends Component {
             <span className="hr"></span>
             <div className="summary_inline">
               <div className="account_icon">
-              <span role="img" aria-label="name">&#9892;</span>
+                <span role="img" aria-label="name">&#9892;</span>
               </div>
               <div className="account_detail">
                 <div className="personal_wrapper">
                   <div className="personal_one">
                     <span className="h2">Gender</span><br /><br />
-                      <Input type="select">
-                        <option>👨 &nbsp; Male</option>
-                        <option>👩 &nbsp; Female</option>
-                      </Input>
+                    <Input type="select">
+                      <option>👨 &nbsp; Male</option>
+                      <option>👩 &nbsp; Female</option>
+                    </Input>
                   </div>
-                  <span style={{width:'5%'}}></span>
+                  <span style={{ width: '5%' }}></span>
                   <div className="personal_two">
                     <span className="h2">Birthday</span><br /><br />
                     <Input type="date" onChange={this.handleChange} placeholder="date" />
@@ -84,4 +84,4 @@ class Account extends Component {
   }
 }
 
-export default Account
+export default Account;

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import Dashboard from '../Dashboard'
-import Payment from '../../components/Payment'
 // import { isAuthEmail, authenticateUser, isAuthUserType } from '../../services/Auth'
 import { Link } from 'react-router-dom';
 // import CustomerMap from '../Map/CustomerMap'
@@ -8,14 +7,15 @@ import {
   Button,
   Row
 } from 'reactstrap';
+import Payment from '../../components/Payment';
 
 class Summary extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       modal: false
-    }
+    };
     this.toggle = this.toggle.bind(this);
   }
 
@@ -24,6 +24,7 @@ class Summary extends Component {
       modal: !this.state.modal,
     });
   }
+
   render() {
     return (
       <React.Fragment>
@@ -99,8 +100,8 @@ class Summary extends Component {
         </Row>
 
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default Summary
+export default Summary;

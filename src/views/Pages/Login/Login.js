@@ -1,85 +1,86 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 // import { Offline, Online } from "react-detect-offline";
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { fetchUserData } from '../../../store/actions/user'
-import { isAuthEmail, authenticateUser, isAuthUserType } from '../../../services/Auth'
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { isAuthEmail, authenticateUser, isAuthUserType } from '../../../services/Auth';
+import {
+  Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup,
+  InputGroupAddon, InputGroupText, Row
+} from 'reactstrap';
+import { fetchUserData } from '../../../store/actions/user';
 
 class Login extends Component {
   constructor(props) {
-		super(props)
-		this.state = {
-			email_signIn: '',
-			password_signIn: '',
-			keep_signIn: false,
-			username_signUp: '',
-			password_signUp: '',
-			password_repeat: '',
-			email_signUp: '',
-			loading: false
-		}
-		this.handleChange = this.handleChange.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
-	}
-
-
-	handleChange(e) {
-		this.setState(
-			{
-				[e.target.id]: e.target.value
-			}
-		)
-	}
-
-
-	handleSubmit(e) {
-    e.preventDefault()
-    let { email_signIn, password_signIn } = this.state
-    let data = JSON.stringify({"username":email_signIn, "password": password_signIn })
-    console.log(data)
-    let { fetchData } = this.props
-		fetchData( data , 'login')
-		// this.setState({
-		// 	email_signIn: '',
-		// 	password_signIn: '',
-		// 	keep_signIn: false,
-		// 	username_signUp: '',
-		// 	password_signUp: '',
-		// 	password_repeat: '',
-		// 	email_signUp: '',
-		// 	loading: true
-		// })
-	}
-
-	componentDidUpdate(prevProps) {
-    let { userData } = this.props.userData
-		if (this.props !== prevProps) {
-			// authenticateUser('fashanutosin7@gmail.com', 'customer');
-      // console.log(this.props.userData)
-			if (isAuthEmail() && isAuthUserType()) {
-				this.props.history.push('/order')
-			} else {
-				if (userData.status === 'successful' && userData.errorcount === '0') {
-					authenticateUser(userData.email, 'customer')
-					this.props.history.push('/order')
-				}
-			}
-		}
+    super(props);
+    this.state = {
+      email_signIn: '',
+      password_signIn: '',
+      keep_signIn: false,
+      username_signUp: '',
+      password_signUp: '',
+      password_repeat: '',
+      email_signUp: '',
+      loading: false
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
+  handleChange(e) {
+    this.setState(
+      {
+        [e.target.id]: e.target.value
+      }
+    );
+  }
+
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let { email_signIn, password_signIn } = this.state;
+    let data = JSON.stringify({ "username": email_signIn, "password": password_signIn });
+    console.log(data);
+    let { fetchData } = this.props;
+    fetchData(data, 'login');
+    // this.setState({
+    // 	email_signIn: '',
+    // 	password_signIn: '',
+    // 	keep_signIn: false,
+    // 	username_signUp: '',
+    // 	password_signUp: '',
+    // 	password_repeat: '',
+    // 	email_signUp: '',
+    // 	loading: true
+    // })
+  }
+
+  componentDidUpdate(prevProps) {
+    let { userData } = this.props.userData;
+    if (this.props !== prevProps) {
+      // authenticateUser('fashanutosin7@gmail.com', 'customer');
+      // console.log(this.props.userData)
+      if (isAuthEmail() && isAuthUserType()) {
+        this.props.history.push('/order')
+      } else {
+        if (userData.status === 'successful' && userData.errorcount === '0') {
+          authenticateUser(userData.email, 'customer')
+          this.props.history.push('/order')
+        };
+      };
+    };
+  }
+
   render() {
     let u = '';
-		let f = '';
-    let { email_signIn, password_signIn } = this.state
-    let { loading, error, errorMessage, userData } = this.props.userData
-    error === 'true' && errorMessage !== ''  ? (f = errorMessage) :
-    ( userData.errorcount !== '0' ? (f = userData.error) : (f = '') )
-		loading === 'done' ? (u = 'Login') :
-      (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Login'))
-      
+    let f = '';
+    let { email_signIn, password_signIn } = this.state;
+    let { loading, error, errorMessage, userData } = this.props.userData;
+    error === 'true' && errorMessage !== '' ? (f = errorMessage) :
+      (userData.errorcount !== '0' ? (f = userData.error) : (f = ''));
+    loading === 'done' ? (u = 'Login') :
+      (loading === 'true' ? (u = <div id="loader"></div>) : (u = 'Login'));
+
     return (
       <div className="app flex-row align-items-center background_image">
         <Container>
@@ -99,7 +100,7 @@ class Login extends Component {
                             <i className="fa fa-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Email" autoComplete="email" required/>
+                        <Input type="text" id="email_signIn" value={email_signIn} onChange={this.handleChange} placeholder="Email" autoComplete="email" required />
                       </InputGroup>
 
                       <span className="error">{f}</span>
@@ -109,11 +110,11 @@ class Login extends Component {
                             <i className="fa fa-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="password" required/>
+                        <Input type="password" id="password_signIn" value={password_signIn} onChange={this.handleChange} placeholder="Password" autoComplete="password" required />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4" style={{width:'8em'}}>{u}</Button>
+                          <Button color="primary" className="px-4" style={{ width: '8em' }}>{u}</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -143,17 +144,18 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return {
-		userData: state.userData
-	}
-}
+  return {
+    userData: state.userData
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
-	return {
-		fetchData: (name, type) => dispatch(fetchUserData(name, type))
-	}
-}
+  return {
+    fetchData: (name, type) => dispatch(fetchUserData(name, type))
+  };
+};
 
 export default compose(
-	withRouter,
-	connect(mapStateToProps, mapDispatchToProps)
-)(Login)
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(Login);
