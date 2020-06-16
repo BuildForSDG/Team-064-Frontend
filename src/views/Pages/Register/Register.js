@@ -161,7 +161,7 @@ class Register extends Component {
     let { userData } = this.props.userData
     if (this.props !== prevProps) {
       if (userData.length !== 0){
-        if (userData.errorcount === '0') {
+        if (userData.errorcount === '0' && this.state.loading === true) {
           this.props.history.push('/message', {data: "success"})
         }
       }
