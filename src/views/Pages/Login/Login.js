@@ -57,7 +57,8 @@ class Login extends Component {
 	componentDidUpdate(prevProps) {
     let { userData } = this.props.userData
 		if (this.props !== prevProps) {
-      console.log(this.props.userData)
+			// authenticateUser('fashanutosin7@gmail.com', 'customer');
+      // console.log(this.props.userData)
 			if (isAuthEmail() && isAuthUserType()) {
 				this.props.history.push('/order')
 			} else {
