@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+import axios from 'axios'
 import { SET_USER } from './actionTypes';
 import { userUiStartLoading, userUiStopLoading } from './ui';
 
@@ -6,6 +7,49 @@ export const setUser = (user) => ({
   type: SET_USER,
   user
 });
+
+export const fetchUserDataRequest = () => ({ type: "FETCH_USER_DATA_REQUEST" });
+export const fetchUserDataSuccess = (userData) => (
+  { type: "FETCH_USER_DATA_SUCCESS", payload: userData });
+export const fetchUserDataFailure = (error) => ({ type: "FETCH_USER_DATA_FAILURE", payload: error });
+// export const fetchUserOnline = (error) => ({type: FETCH_USER_ERROR, payload: error});
+
+// 'https://johnerry.000webhostapp.com/placeholder.php?u='
+// 'https://my-json-server.typicode.com/johnerry/json_place_holder/'
+export const fetchUserData = (data, type) => async (dispatch) => {
+  let hm;
+  type === 'login' ? (hm = axios.post('https://broomy64.herokuapp.com/customersessions', data, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })) :
+    (hm = axios.post('https://broomy64.herokuapp.com/customers', data, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }));
+
+  try {
+    dispatch(fetchUserDataRequest())
+    hm
+      .then(response => {
+        const userData = response.data
+        // console.log(type)
+        dispatch(fetchUserDataSuccess(userData))
+      })
+      .catch(error => {
+        const errorMessage = error.message
+        // console.log(errorMessage)
+        dispatch(fetchUserDataFailure(errorMessage))
+      })
+
+  } catch (error) {
+    // dispatch(fetchUserOnline(error))
+  }
+
+}
+
+
 
 export const getUser = () => async (dispatch) => {
   try {

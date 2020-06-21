@@ -3,16 +3,17 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {
-  Router, Route as DefaultRoute, Switch, Redirect
-} from 'react-router-dom';
+import { Router, Route as DefaultRoute, Switch, Redirect } from 'react-router-dom';
 import history from './history';
-import SignInPage from './components/Screens/Auth/SignIn';
-import LandingPage from './containers/LandingPage';
+import Login from './views/Pages/Login';
+import Register from './views/Pages/Register';
+import RegMessage from './views/Pages/Message/RegMessage';
+import DefaultLayout from './containers/DefaultLayout';
+import { isAuthEmail, isAuthUserType } from './services/Auth';
 
 // @desc  A function to check if user is authenticated. Check if token exists
 // @ex    const isAuth = isAuthenticated()
-const isAuthenticated = () => true;
+// const isAuthenticated = () => true;
 
 // @desc    This is a function that create protected/private routes.
 //          It makes use of isAuthenticated function to check if the user
@@ -22,15 +23,15 @@ const isAuthenticated = () => true;
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <DefaultRoute
     {...rest}
-    render={(props) => (isAuthenticated() ? (
-        <Component {...props} />
+    render={(props) => (isAuthEmail() && isAuthUserType() ? (
+      <Component {...props} />
     ) : (
         <Redirect
           to={{
-            pathname: '/'
+            pathname: '/login'
           }}
         />
-    ))
+      ))
     }
   />
 );
@@ -47,9 +48,10 @@ const Route = ({ component: Component, ensureNonAuth, ...rest }) => (
 export default () => (
   <Router history={history}>
     <Switch>
-      <Route ensureNonAuth exact path="/" component={LandingPage} />
-      <PrivateRoute path="/sign-in" component={SignInPage} />
-      <Route component={() => <h4>404 !</h4>} />
+      <Route ensureNonAuth exact path="/login" component={Login} />
+      <Route ensureNonAuth exact path="/message" component={RegMessage} />
+      <Route ensureNonAuth exact path="/register" component={Register} />
+      <PrivateRoute path="/" name="Home" component={DefaultLayout} />
     </Switch>
   </Router>
 );

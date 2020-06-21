@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0a49651f.chunk.css",
+    "main.js": "/static/js/main.d835a203.chunk.js",
+    "main.js.map": "/static/js/main.d835a203.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7c0ae09a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7c0ae09a.js.map",
+    "static/css/2.85f19f90.chunk.css": "/static/css/2.85f19f90.chunk.css",
+    "static/js/2.439f7f55.chunk.js": "/static/js/2.439f7f55.chunk.js",
+    "static/js/2.439f7f55.chunk.js.map": "/static/js/2.439f7f55.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e2a72eda577990307aade092f8bf37f3.js": "/precache-manifest.e2a72eda577990307aade092f8bf37f3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.85f19f90.chunk.css.map": "/static/css/2.85f19f90.chunk.css.map",
+    "static/css/main.0a49651f.chunk.css.map": "/static/css/main.0a49651f.chunk.css.map",
+    "static/js/2.439f7f55.chunk.js.LICENSE.txt": "/static/js/2.439f7f55.chunk.js.LICENSE.txt",
+    "static/media/coins.png": "/static/media/coins.4ebd2998.png",
+    "static/media/creditcard.png": "/static/media/creditcard.44312a1c.png",
+    "static/media/date.png": "/static/media/date.caa1e824.png",
+    "static/media/font_awesome.css": "/static/media/fontawesome-webfont.e6cf7c6e.woff2",
+    "static/media/garbage_bag.jpg": "/static/media/garbage_bag.9d9e13d8.jpg",
+    "static/media/profile_image.jpg": "/static/media/profile_image.b900f454.jpg",
+    "static/media/sweeper_logo.svg": "/static/media/sweeper_logo.21825eb1.svg",
+    "static/media/theming.css": "/static/media/sweeper_small_logo.52ea610a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7c0ae09a.js",
+    "static/css/2.85f19f90.chunk.css",
+    "static/js/2.439f7f55.chunk.js",
+    "static/css/main.0a49651f.chunk.css",
+    "static/js/main.d835a203.chunk.js"
+  ]
+}
